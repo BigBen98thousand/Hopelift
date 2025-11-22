@@ -97,7 +97,7 @@
         }
 
         .btn-secondary {
-            background: transparent;
+            background: var(--white);
             color: var(--primary);
             border: 2px solid var(--primary);
         }
@@ -220,7 +220,7 @@
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(46, 139, 87, 0.85), rgba(31, 107, 66, 0.9)), url('') center/cover;
+            background: linear-gradient(rgba(46, 139, 87, 0.85), rgba(31, 107, 66, 0.9)), url('https://images.unsplash.com/photo-1559027615-cd4628902d4a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2074&q=80') center/cover;
             height: 100vh;
             display: flex;
             align-items: center;
@@ -255,35 +255,6 @@
             flex-wrap: wrap;
         }
 
-        /* Stats Section */
-        .stats {
-            background: var(--primary);
-            color: var(--white);
-            padding: 80px 0;
-        }
-
-        .stats-container {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-        }
-
-        .stat-item {
-            text-align: center;
-            padding: 20px;
-        }
-
-        .stat-number {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
-
-        .stat-text {
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
-
         /* About Section */
         .about {
             background: var(--white);
@@ -309,7 +280,6 @@
         }
 
         .about-image {
-            background: var(--gray);
             height: 500px;
             border-radius: 10px;
             display: flex;
@@ -318,12 +288,7 @@
             box-shadow: var(--shadow);
             color: var(--text-light);
             overflow: hidden;
-        }
-
-        .about-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            background: url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') center/cover;
         }
 
         .vision-mission {
@@ -466,7 +431,6 @@
         }
 
         .impact-image {
-            background: var(--gray);
             height: 500px;
             border-radius: 10px;
             display: flex;
@@ -475,12 +439,7 @@
             box-shadow: var(--shadow);
             color: var(--text-light);
             overflow: hidden;
-        }
-
-        .impact-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            background: url('https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') center/cover;
         }
 
         /* Gallery Section */
@@ -840,10 +799,6 @@
                 font-size: 3rem;
             }
 
-            .stats-container {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
             .footer-content {
                 grid-template-columns: 1fr 1fr;
             }
@@ -895,10 +850,6 @@
 
             .btn {
                 width: 200px;
-            }
-
-            .stats-container {
-                grid-template-columns: 1fr;
             }
         }
 
@@ -966,28 +917,6 @@
         </div>
     </section>
 
-    <!-- Stats Section -->
-    <section class="stats">
-        <div class="container stats-container">
-            <div class="stat-item">
-                <div class="stat-number">500+</div>
-                <div class="stat-text">Lives Transformed</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">15+</div>
-                <div class="stat-text">Communities Reached</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">50+</div>
-                <div class="stat-text">Businesses Started</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">10+</div>
-                <div class="stat-text">Years of Service</div>
-            </div>
-        </div>
-    </section>
-
     <!-- About Section -->
     <section id="about" class="about">
         <div class="container">
@@ -1014,9 +943,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="about-image">
-                    <i class="fas fa-hands-helping" style="font-size: 4rem; color: var(--primary);"></i>
-                </div>
+                <div class="about-image"></div>
             </div>
         </div>
     </section>
@@ -1115,9 +1042,7 @@
                         <p>"As a widow with four children, I had lost all hope. Hopelift not only provided business training but also emotional support. My bakery now supplies to local shops and I can pay my children's school fees."</p>
                     </div>
                 </div>
-                <div class="impact-image">
-                    <i class="fas fa-chart-bar" style="font-size: 4rem; color: var(--primary);"></i>
-                </div>
+                <div class="impact-image"></div>
             </div>
         </div>
     </section>
@@ -1127,30 +1052,12 @@
         <div class="container">
             <h2 class="section-title">Our Work in Action</h2>
             <div class="gallery-container">
-                <div class="gallery-item gallery-placeholder">
-                    <i class="fas fa-camera"></i>
-                    <p>Training Session</p>
-                </div>
-                <div class="gallery-item gallery-placeholder">
-                    <i class="fas fa-camera"></i>
-                    <p>Business Grant</p>
-                </div>
-                <div class="gallery-item gallery-placeholder">
-                    <i class="fas fa-camera"></i>
-                    <p>Community Outreach</p>
-                </div>
-                <div class="gallery-item gallery-placeholder">
-                    <i class="fas fa-camera"></i>
-                    <p>Skills Training</p>
-                </div>
-                <div class="gallery-item gallery-placeholder">
-                    <i class="fas fa-camera"></i>
-                    <p>Success Stories</p>
-                </div>
-                <div class="gallery-item gallery-placeholder">
-                    <i class="fas fa-camera"></i>
-                    <p>Volunteer Activities</p>
-                </div>
+                <div class="gallery-item" style="background: url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') center/cover;"></div>
+                <div class="gallery-item" style="background: url('https://images.unsplash.com/photo-1559027615-cd4628902d4a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2074&q=80') center/cover;"></div>
+                <div class="gallery-item" style="background: url('https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') center/cover;"></div>
+                <div class="gallery-item" style="background: url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') center/cover;"></div>
+                <div class="gallery-item" style="background: url('https://images.unsplash.com/photo-1551135049-8a33b5883817?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') center/cover;"></div>
+                <div class="gallery-item" style="background: url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2120&q=80') center/cover;"></div>
             </div>
         </div>
     </section>
