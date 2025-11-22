@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hopelift Empowerment Foundation</title>
+    <title>Hopelift Empowerment Foundation | Restoring Dignity. Rebuilding Lives.</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Base Styles */
         :root {
-            --primary: #2E8B57; /* Leaf Green */
+            --primary: #2E8B57;
             --primary-dark: #1F6B42;
             --primary-light: #3CB371;
             --accent: #FF6B35;
@@ -17,6 +17,7 @@
             --text: #333;
             --text-light: #6C757D;
             --white: #FFFFFF;
+            --gray: #E9ECEF;
             --shadow: 0 5px 15px rgba(0,0,0,0.1);
             --transition: all 0.3s ease;
         }
@@ -25,7 +26,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         html {
@@ -33,7 +34,7 @@
         }
 
         body {
-            line-height: 1.6;
+            line-height: 1.7;
             color: var(--text);
             background-color: var(--white);
             overflow-x: hidden;
@@ -47,43 +48,32 @@
         }
 
         section {
-            padding: 80px 0;
-            min-height: 100vh;
-            display: none;
-        }
-
-        section.active {
-            display: block;
-            animation: fadeIn 0.5s ease;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            padding: 100px 0;
         }
 
         .section-title {
             text-align: center;
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             margin-bottom: 3rem;
             color: var(--dark);
             position: relative;
+            font-weight: 700;
         }
 
         .section-title::after {
             content: '';
             position: absolute;
-            bottom: -10px;
+            bottom: -15px;
             left: 50%;
             transform: translateX(-50%);
-            width: 80px;
+            width: 100px;
             height: 4px;
             background: var(--primary);
         }
 
         .btn {
             display: inline-block;
-            padding: 12px 30px;
+            padding: 14px 32px;
             border: none;
             border-radius: 5px;
             font-size: 1rem;
@@ -92,6 +82,7 @@
             font-weight: 600;
             text-align: center;
             text-decoration: none;
+            letter-spacing: 0.5px;
         }
 
         .btn-primary {
@@ -114,6 +105,16 @@
         .btn-secondary:hover {
             background: var(--primary);
             color: var(--white);
+        }
+
+        .btn-accent {
+            background: var(--accent);
+            color: var(--white);
+        }
+
+        .btn-accent:hover {
+            background: #e55a2b;
+            transform: translateY(-3px);
         }
 
         /* Header & Navigation */
@@ -140,8 +141,8 @@
         }
 
         .logo-img {
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
             background: var(--primary);
             border-radius: 50%;
             display: flex;
@@ -149,7 +150,8 @@
             justify-content: center;
             color: var(--white);
             font-weight: bold;
-            font-size: 1.2rem;
+            font-size: 1.5rem;
+            box-shadow: var(--shadow);
         }
 
         .logo-text {
@@ -216,34 +218,34 @@
             transition: var(--transition);
         }
 
-        /* Home Section */
-        #home {
-            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('') center/cover;
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(46, 139, 87, 0.85), rgba(31, 107, 66, 0.9)), url('') center/cover;
+            height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding-top: 100px;
+            color: var(--white);
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 0 20px;
         }
 
         .hero-content h1 {
-            font-size: 3.5rem;
+            font-size: 4rem;
             margin-bottom: 1.5rem;
-            color: var(--dark);
             line-height: 1.2;
-        }
-
-        .hero-content h1 span {
-            color: var(--primary);
+            font-weight: 800;
         }
 
         .hero-content p {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             margin-bottom: 2.5rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            color: var(--text-light);
+            opacity: 0.9;
         }
 
         .hero-buttons {
@@ -253,7 +255,40 @@
             flex-wrap: wrap;
         }
 
+        /* Stats Section */
+        .stats {
+            background: var(--primary);
+            color: var(--white);
+            padding: 80px 0;
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .stat-text {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
         /* About Section */
+        .about {
+            background: var(--white);
+        }
+
         .about-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -261,9 +296,34 @@
             align-items: center;
         }
 
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+        }
+
         .about-text p {
             font-size: 1.1rem;
             margin-bottom: 1.5rem;
+            color: var(--text-light);
+        }
+
+        .about-image {
+            background: var(--gray);
+            height: 500px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow);
+            color: var(--text-light);
+            overflow: hidden;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .vision-mission {
@@ -275,30 +335,28 @@
 
         .vm-card {
             background: var(--light);
-            padding: 2rem;
+            padding: 2.5rem;
             border-radius: 10px;
             border-left: 4px solid var(--primary);
             box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .vm-card:hover {
+            transform: translateY(-5px);
         }
 
         .vm-card h3 {
             color: var(--primary);
             margin-bottom: 1rem;
-            font-size: 1.3rem;
-        }
-
-        .about-image {
-            background: var(--light);
-            height: 400px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: var(--shadow);
-            color: var(--text-light);
+            font-size: 1.5rem;
         }
 
         /* Programs Section */
+        .programs {
+            background: var(--light);
+        }
+
         .programs-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -311,8 +369,19 @@
             border-radius: 10px;
             box-shadow: var(--shadow);
             transition: var(--transition);
-            border-top: 4px solid var(--primary);
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .program-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--primary);
         }
 
         .program-card:hover {
@@ -321,7 +390,7 @@
         }
 
         .program-icon {
-            font-size: 2.5rem;
+            font-size: 3rem;
             color: var(--primary);
             margin-bottom: 1.5rem;
         }
@@ -329,10 +398,141 @@
         .program-card h3 {
             color: var(--dark);
             margin-bottom: 1rem;
-            font-size: 1.4rem;
+            font-size: 1.5rem;
+        }
+
+        .program-card p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Impact Section */
+        .impact {
+            background: var(--white);
+        }
+
+        .impact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .impact-stories {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .story-card {
+            background: var(--light);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .story-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .story-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .story-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: bold;
+            margin-right: 15px;
+        }
+
+        .story-info h4 {
+            color: var(--dark);
+            margin-bottom: 5px;
+        }
+
+        .story-info p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .impact-image {
+            background: var(--gray);
+            height: 500px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow);
+            color: var(--text-light);
+            overflow: hidden;
+        }
+
+        .impact-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            background: var(--light);
+        }
+
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            height: 250px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .gallery-placeholder {
+            background: var(--gray);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+        }
+
+        .gallery-placeholder i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
         }
 
         /* Grant Application Section */
+        .grants {
+            background: var(--white);
+        }
+
         .grant-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -342,25 +542,28 @@
 
         .grant-info h3 {
             color: var(--dark);
-            font-size: 1.8rem;
+            font-size: 2rem;
             margin-bottom: 1.5rem;
         }
 
         .grant-info p {
             font-size: 1.1rem;
             margin-bottom: 2rem;
+            color: var(--text-light);
         }
 
         .benefits {
             background: var(--light);
-            padding: 1.5rem;
-            border-radius: 8px;
+            padding: 2rem;
+            border-radius: 10px;
             margin-top: 2rem;
+            box-shadow: var(--shadow);
         }
 
         .benefits h4 {
             color: var(--primary);
             margin-bottom: 1rem;
+            font-size: 1.3rem;
         }
 
         .benefits ul {
@@ -368,8 +571,10 @@
         }
 
         .benefits li {
-            padding: 0.5rem 0;
+            padding: 0.7rem 0;
             border-bottom: 1px solid #e9ecef;
+            display: flex;
+            align-items: center;
         }
 
         .benefits li:before {
@@ -377,6 +582,7 @@
             color: var(--primary);
             font-weight: bold;
             margin-right: 10px;
+            font-size: 1.2rem;
         }
 
         .grant-form, .volunteer-form, .contact-form {
@@ -390,6 +596,7 @@
             color: var(--dark);
             margin-bottom: 1.5rem;
             text-align: center;
+            font-size: 1.8rem;
         }
 
         .form-group {
@@ -400,6 +607,7 @@
             display: block;
             margin-bottom: 0.5rem;
             font-weight: 500;
+            color: var(--dark);
         }
 
         .form-group input, .form-group select, .form-group textarea {
@@ -409,15 +617,20 @@
             border-radius: 5px;
             font-size: 1rem;
             transition: var(--transition);
+            font-family: inherit;
         }
 
         .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
             outline: none;
             border-color: var(--primary);
-            box-shadow: 0 0 0 2px rgba(46, 139, 87, 0.2);
+            box-shadow: 0 0 0 3px rgba(46, 139, 87, 0.2);
         }
 
         /* Volunteer Section */
+        .volunteer {
+            background: var(--light);
+        }
+
         .volunteer-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -427,16 +640,21 @@
 
         .volunteer-info h3 {
             color: var(--dark);
-            font-size: 1.8rem;
+            font-size: 2rem;
             margin-bottom: 1.5rem;
         }
 
         .volunteer-info p {
             font-size: 1.1rem;
             margin-bottom: 2rem;
+            color: var(--text-light);
         }
 
         /* Contact Section */
+        .contact {
+            background: var(--white);
+        }
+
         .contact-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -446,12 +664,13 @@
         .contact-info h3 {
             color: var(--dark);
             margin-bottom: 1.5rem;
-            font-size: 1.8rem;
+            font-size: 2rem;
         }
 
         .contact-info p {
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             font-size: 1.1rem;
+            color: var(--text-light);
         }
 
         .contact-details {
@@ -461,12 +680,12 @@
         .contact-item {
             display: flex;
             align-items: center;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
         }
 
         .contact-icon {
-            width: 40px;
-            height: 40px;
+            width: 50px;
+            height: 50px;
             background: var(--primary);
             color: var(--white);
             border-radius: 50%;
@@ -474,6 +693,7 @@
             align-items: center;
             justify-content: center;
             margin-right: 15px;
+            font-size: 1.2rem;
         }
 
         .social-links {
@@ -487,8 +707,8 @@
         }
 
         .social-icons a {
-            width: 40px;
-            height: 40px;
+            width: 45px;
+            height: 45px;
             background: var(--primary);
             color: var(--white);
             border-radius: 50%;
@@ -497,6 +717,7 @@
             justify-content: center;
             text-decoration: none;
             transition: var(--transition);
+            font-size: 1.2rem;
         }
 
         .social-icons a:hover {
@@ -508,14 +729,14 @@
         footer {
             background: var(--dark);
             color: var(--white);
-            padding: 3rem 0 2rem 0;
+            padding: 4rem 0 2rem 0;
         }
 
         .footer-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 2rem;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
         }
 
         .footer-logo h3 {
@@ -527,25 +748,70 @@
         .tagline {
             font-style: italic;
             color: #bdc3c7;
+            margin-bottom: 1.5rem;
         }
 
-        .footer-links {
-            display: flex;
-            gap: 2rem;
+        .footer-about p {
+            color: #bdc3c7;
+            margin-bottom: 1.5rem;
         }
 
-        .footer-links a {
+        .footer-links h4, .footer-programs h4, .footer-contact h4 {
             color: var(--white);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            position: relative;
+        }
+
+        .footer-links h4::after, .footer-programs h4::after, .footer-contact h4::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--primary);
+        }
+
+        .footer-links ul, .footer-programs ul {
+            list-style: none;
+        }
+
+        .footer-links li, .footer-programs li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a, .footer-programs a {
+            color: #bdc3c7;
             text-decoration: none;
             transition: var(--transition);
         }
 
-        .footer-links a:hover {
+        .footer-links a:hover, .footer-programs a:hover {
+            color: var(--primary);
+            padding-left: 5px;
+        }
+
+        .footer-contact p {
+            color: #bdc3c7;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-contact i {
+            margin-right: 10px;
             color: var(--primary);
         }
 
-        .footer p {
+        .footer-bottom {
             text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .footer-bottom p {
+            color: #bdc3c7;
             margin-bottom: 0.5rem;
         }
 
@@ -562,7 +828,7 @@
 
         /* Responsive Design */
         @media screen and (max-width: 992px) {
-            .about-content, .grant-content, .volunteer-content, .contact-content {
+            .about-content, .grant-content, .volunteer-content, .contact-content, .impact-content {
                 grid-template-columns: 1fr;
             }
             
@@ -571,7 +837,15 @@
             }
             
             .hero-content h1 {
-                font-size: 2.8rem;
+                font-size: 3rem;
+            }
+
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
             }
         }
 
@@ -599,11 +873,11 @@
             }
 
             .hero-content h1 {
-                font-size: 2.2rem;
+                font-size: 2.5rem;
             }
 
             .hero-content p {
-                font-size: 1.1rem;
+                font-size: 1.2rem;
             }
 
             .section-title {
@@ -611,14 +885,7 @@
             }
 
             .footer-content {
-                flex-direction: column;
-                gap: 2rem;
-                text-align: center;
-            }
-
-            .footer-links {
-                flex-direction: column;
-                gap: 1rem;
+                grid-template-columns: 1fr;
             }
 
             .hero-buttons {
@@ -629,6 +896,10 @@
             .btn {
                 width: 200px;
             }
+
+            .stats-container {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media screen and (max-width: 480px) {
@@ -637,7 +908,7 @@
             }
 
             .hero-content h1 {
-                font-size: 1.8rem;
+                font-size: 2rem;
             }
 
             .program-card, .grant-form, .volunteer-form {
@@ -668,40 +939,69 @@
                     <span class="bar"></span>
                 </div>
                 <div class="nav-menu" id="nav-menu">
-                    <a href="#home" class="nav-link active" data-section="home">Home</a>
-                    <a href="#about" class="nav-link" data-section="about">Our Story</a>
-                    <a href="#programs" class="nav-link" data-section="programs">Programs</a>
-                    <a href="#grants" class="nav-link" data-section="grants">Apply for Grant</a>
-                    <a href="#volunteer" class="nav-link" data-section="volunteer">Volunteer</a>
-                    <a href="#contact" class="nav-link" data-section="contact">Contact</a>
+                    <a href="#home" class="nav-link active">Home</a>
+                    <a href="#about" class="nav-link">Our Story</a>
+                    <a href="#programs" class="nav-link">Programs</a>
+                    <a href="#impact" class="nav-link">Impact</a>
+                    <a href="#gallery" class="nav-link">Gallery</a>
+                    <a href="#grants" class="nav-link">Apply</a>
+                    <a href="#volunteer" class="nav-link">Volunteer</a>
+                    <a href="#contact" class="nav-link">Contact</a>
                 </div>
             </nav>
         </div>
     </header>
 
-    <!-- Home Section -->
-    <section id="home" class="active">
+    <!-- Hero Section -->
+    <section id="home" class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1>Restoring <span>Dignity.</span> Rebuilding <span>Lives.</span></h1>
+                <h1>Restoring Dignity. Rebuilding Lives.</h1>
                 <p>Empowering widows, widowers, and the less privileged with sustainable livelihood opportunities through skills training and business grants.</p>
                 <div class="hero-buttons">
-                    <a href="#grants" class="btn btn-primary" data-section="grants">Apply for Support</a>
-                    <a href="#volunteer" class="btn btn-secondary" data-section="volunteer">Become a Volunteer</a>
+                    <a href="#grants" class="btn btn-primary">Apply for Support</a>
+                    <a href="#volunteer" class="btn btn-secondary">Become a Volunteer</a>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container stats-container">
+            <div class="stat-item">
+                <div class="stat-number">500+</div>
+                <div class="stat-text">Lives Transformed</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">15+</div>
+                <div class="stat-text">Communities Reached</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">50+</div>
+                <div class="stat-text">Businesses Started</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">10+</div>
+                <div class="stat-text">Years of Service</div>
+            </div>
+        </div>
+    </section>
+
     <!-- About Section -->
-    <section id="about">
+    <section id="about" class="about">
         <div class="container">
             <h2 class="section-title">Our Story</h2>
             <div class="about-content">
                 <div class="about-text">
+                    <h2>From Compassion to Action</h2>
                     <p>Our journey began in 2011 when our founder, during her NYSC service at Ilesha General Hospital, discovered that true care extends beyond clinical treatment. What started as simple acts of providing toiletries to patients evolved into a lifelong calling.</p>
                     
                     <p>From dedicating her salary to help orphanage children and widows, to now empowering individuals with business grants and skills training across continents - our mission has always been clear: <strong>"Instead of giving people fish, we help them learn to fish."</strong></p>
+
+                    <p>In 2021, our founder relocated to Canada, opening a new chapter in her journey. With a broader perspective on global needs and opportunities, she continued her mission by empowering widows and widowers with financial support to start small-scale businesses.</p>
+
+                    <p>By 2025, her passion expanded into research on sustainable solutions for families and individuals in Nigeria. She discovered the potential of POS businesses and other small-scale ventures, successfully setting up three individuals with stable sources of income.</p>
 
                     <div class="vision-mission">
                         <div class="vm-card">
@@ -715,14 +1015,14 @@
                     </div>
                 </div>
                 <div class="about-image">
-                    <i class="fas fa-hands-helping" style="font-size: 4rem; color: #2E8B57;"></i>
+                    <i class="fas fa-hands-helping" style="font-size: 4rem; color: var(--primary);"></i>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Programs Section -->
-    <section id="programs">
+    <section id="programs" class="programs">
         <div class="container">
             <h2 class="section-title">Our Programs</h2>
             <div class="programs-grid">
@@ -732,6 +1032,7 @@
                     </div>
                     <h3>Start-Up Business Grants</h3>
                     <p>Financial support for petty trading, small businesses, and income-generating ventures to help beneficiaries become self-sufficient.</p>
+                    <a href="#grants" class="btn btn-primary" style="margin-top: 10px;">Apply Now</a>
                 </div>
                 <div class="program-card">
                     <div class="program-icon">
@@ -739,6 +1040,7 @@
                     </div>
                     <h3>Skills Training Program</h3>
                     <p>Practical training in hairdressing, tailoring, baking, catering, farming, and POS operations for sustainable employment.</p>
+                    <a href="#grants" class="btn btn-primary" style="margin-top: 10px;">Learn More</a>
                 </div>
                 <div class="program-card">
                     <div class="program-icon">
@@ -746,6 +1048,7 @@
                     </div>
                     <h3>Widows & Widowers Support</h3>
                     <p>Comprehensive assistance including food packs, emotional support, health checks, and urgent welfare needs.</p>
+                    <a href="#grants" class="btn btn-primary" style="margin-top: 10px;">Get Help</a>
                 </div>
                 <div class="program-card">
                     <div class="program-icon">
@@ -753,6 +1056,7 @@
                     </div>
                     <h3>Financial Literacy & Mentorship</h3>
                     <p>Teaching money management, savings, and business growth strategies for long-term financial stability.</p>
+                    <a href="#grants" class="btn btn-primary" style="margin-top: 10px;">Join Program</a>
                 </div>
                 <div class="program-card">
                     <div class="program-icon">
@@ -760,6 +1064,7 @@
                     </div>
                     <h3>Youth Empowerment Bootcamp</h3>
                     <p>Intensive training for young people with business ideas but no startup funds or guidance.</p>
+                    <a href="#grants" class="btn btn-primary" style="margin-top: 10px;">Apply Now</a>
                 </div>
                 <div class="program-card">
                     <div class="program-icon">
@@ -767,27 +1072,107 @@
                     </div>
                     <h3>One-on-One Counseling</h3>
                     <p>Personalized emotional and mental support sessions for individuals facing challenging circumstances.</p>
+                    <a href="#grants" class="btn btn-primary" style="margin-top: 10px;">Get Support</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section id="impact" class="impact">
+        <div class="container">
+            <h2 class="section-title">Our Impact</h2>
+            <div class="impact-content">
+                <div class="impact-stories">
+                    <div class="story-card">
+                        <div class="story-header">
+                            <div class="story-avatar">AA</div>
+                            <div class="story-info">
+                                <h4>Amara Okeke</h4>
+                                <p>Tailoring Business Owner</p>
+                            </div>
+                        </div>
+                        <p>"With the business grant from Hopelift, I was able to start my tailoring shop. I now employ two apprentices and can comfortably provide for my three children. This foundation has truly restored my dignity."</p>
+                    </div>
+                    <div class="story-card">
+                        <div class="story-header">
+                            <div class="story-avatar">CJ</div>
+                            <div class="story-info">
+                                <h4>Chinedu Johnson</h4>
+                                <p>POS Business Owner</p>
+                            </div>
+                        </div>
+                        <p>"After losing my job, I struggled to provide for my family. The skills training and startup grant from Hopelift helped me establish a POS business that now serves my entire community. I'm forever grateful."</p>
+                    </div>
+                    <div class="story-card">
+                        <div class="story-header">
+                            <div class="story-avatar">FB</div>
+                            <div class="story-info">
+                                <h4>Fatima Bello</h4>
+                                <p>Bakery Owner</p>
+                            </div>
+                        </div>
+                        <p>"As a widow with four children, I had lost all hope. Hopelift not only provided business training but also emotional support. My bakery now supplies to local shops and I can pay my children's school fees."</p>
+                    </div>
+                </div>
+                <div class="impact-image">
+                    <i class="fas fa-chart-bar" style="font-size: 4rem; color: var(--primary);"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <h2 class="section-title">Our Work in Action</h2>
+            <div class="gallery-container">
+                <div class="gallery-item gallery-placeholder">
+                    <i class="fas fa-camera"></i>
+                    <p>Training Session</p>
+                </div>
+                <div class="gallery-item gallery-placeholder">
+                    <i class="fas fa-camera"></i>
+                    <p>Business Grant</p>
+                </div>
+                <div class="gallery-item gallery-placeholder">
+                    <i class="fas fa-camera"></i>
+                    <p>Community Outreach</p>
+                </div>
+                <div class="gallery-item gallery-placeholder">
+                    <i class="fas fa-camera"></i>
+                    <p>Skills Training</p>
+                </div>
+                <div class="gallery-item gallery-placeholder">
+                    <i class="fas fa-camera"></i>
+                    <p>Success Stories</p>
+                </div>
+                <div class="gallery-item gallery-placeholder">
+                    <i class="fas fa-camera"></i>
+                    <p>Volunteer Activities</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Grant Application Section -->
-    <section id="grants">
+    <section id="grants" class="grants">
         <div class="container">
             <h2 class="section-title">Apply for Support</h2>
             <div class="grant-content">
                 <div class="grant-info">
                     <h3>Ready to Transform Your Life?</h3>
                     <p>We're here to help you start your journey to independence. Whether you need business funding, skills training, or emotional support, we're committed to walking with you every step of the way.</p>
+                    <p>Our application process is simple and straightforward. We review every application carefully and provide feedback within 2-3 weeks. If approved, we'll work with you to create a personalized empowerment plan.</p>
                     <div class="benefits">
                         <h4>What We Offer:</h4>
                         <ul>
-                            <li>Start-up business grants</li>
-                            <li>Professional skills training</li>
-                            <li>Business mentorship</li>
-                            <li>Emotional support counseling</li>
+                            <li>Start-up business grants up to ₦100,000</li>
+                            <li>Professional skills training in various fields</li>
+                            <li>Ongoing business mentorship and support</li>
+                            <li>Emotional support counseling sessions</li>
                             <li>Financial literacy education</li>
+                            <li>Networking opportunities with other entrepreneurs</li>
                         </ul>
                     </div>
                 </div>
@@ -806,6 +1191,10 @@
                         <input type="tel" id="phone" placeholder="Enter your phone number" required>
                     </div>
                     <div class="form-group">
+                        <label for="location">Location</label>
+                        <input type="text" id="location" placeholder="Enter your city/town" required>
+                    </div>
+                    <div class="form-group">
                         <label for="program">Program Interested In</label>
                         <select id="program" required>
                             <option value="">Select a program</option>
@@ -822,11 +1211,11 @@
                     </div>
                     <div class="form-group">
                         <label for="businessIdea">Business Idea (if applicable)</label>
-                        <textarea id="businessIdea" placeholder="If applying for business grant, describe your business idea..." rows="3"></textarea>
+                        <textarea id="businessIdea" placeholder="If applying for business grant, describe your business idea, target market, and how you plan to succeed..." rows="3"></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit Application</button>
                     <div class="success-message" id="grantSuccess">
-                        Thank you for your application! We will review it and contact you soon.
+                        Thank you for your application! We will review it and contact you within 2-3 weeks.
                     </div>
                 </form>
             </div>
@@ -834,13 +1223,14 @@
     </section>
 
     <!-- Volunteer Section -->
-    <section id="volunteer">
+    <section id="volunteer" class="volunteer">
         <div class="container">
             <h2 class="section-title">Volunteer With Us</h2>
             <div class="volunteer-content">
                 <div class="volunteer-info">
                     <h3>Make a Difference</h3>
                     <p>Join our team of dedicated volunteers and help us transform lives in our community. Your time and skills can make a real impact.</p>
+                    <p>We welcome volunteers from all backgrounds and with various skills. Whether you can offer professional expertise, hands-on assistance, or simply your time and compassion, we have a place for you.</p>
                     <div class="benefits">
                         <h4>Volunteer Opportunities:</h4>
                         <ul>
@@ -849,6 +1239,9 @@
                             <li>Fundraising and events</li>
                             <li>Administrative support</li>
                             <li>Community outreach</li>
+                            <li>Grant writing assistance</li>
+                            <li>Photography and documentation</li>
+                            <li>Social media management</li>
                         </ul>
                     </div>
                 </div>
@@ -882,7 +1275,7 @@
                     </div>
                     <button type="submit" class="btn btn-primary">Apply to Volunteer</button>
                     <div class="success-message" id="volunteerSuccess">
-                        Thank you for your interest in volunteering! We will contact you soon.
+                        Thank you for your interest in volunteering! We will contact you soon to discuss opportunities.
                     </div>
                 </form>
             </div>
@@ -890,7 +1283,7 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact">
+    <section id="contact" class="contact">
         <div class="container">
             <h2 class="section-title">Get In Touch</h2>
             <div class="contact-content">
@@ -957,7 +1350,7 @@
                     </div>
                     <button type="submit" class="btn btn-primary">Send Message</button>
                     <div class="success-message" id="contactSuccess">
-                        Thank you for your message! We will get back to you soon.
+                        Thank you for your message! We will get back to you within 48 hours.
                     </div>
                 </form>
             </div>
@@ -968,101 +1361,129 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-logo">
-                    <h3>HOPELIFT</h3>
-                    <p>Empowerment Foundation</p>
-                    <p class="tagline">Restoring Dignity. Rebuilding Lives.</p>
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <h3>HOPELIFT</h3>
+                        <p class="tagline">Empowerment Foundation</p>
+                    </div>
+                    <p>Restoring dignity and rebuilding lives through sustainable empowerment programs for widows, widowers, and the less privileged.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
                 </div>
                 <div class="footer-links">
-                    <a href="#home" data-section="home">Home</a>
-                    <a href="#about" data-section="about">Our Story</a>
-                    <a href="#programs" data-section="programs">Programs</a>
-                    <a href="#grants" data-section="grants">Apply</a>
-                    <a href="#volunteer" data-section="volunteer">Volunteer</a>
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">Our Story</a></li>
+                        <li><a href="#programs">Programs</a></li>
+                        <li><a href="#impact">Impact</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                    </ul>
+                </div>
+                <div class="footer-programs">
+                    <h4>Our Programs</h4>
+                    <ul>
+                        <li><a href="#grants">Business Grants</a></li>
+                        <li><a href="#grants">Skills Training</a></li>
+                        <li><a href="#grants">Widows Support</a></li>
+                        <li><a href="#grants">Youth Bootcamp</a></li>
+                        <li><a href="#grants">Counseling</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p><i class="fas fa-envelope"></i> info@hopeliftfoundation.org</p>
+                    <p><i class="fas fa-phone"></i> +234 XXX XXX XXXX</p>
+                    <p><i class="fas fa-map-marker-alt"></i> [Your Location Here]</p>
                 </div>
             </div>
-            <p>&copy; 2024 Hopelift Empowerment Foundation. All rights reserved.</p>
-            <p>Making a difference, one life at a time.</p>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Hopelift Empowerment Foundation. All rights reserved.</p>
+                <p>Restoring Dignity. Rebuilding Lives.</p>
+            </div>
         </div>
     </footer>
 
     <script>
-        // Navigation and Section Management
-        document.addEventListener('DOMContentLoaded', function() {
-            const navLinks = document.querySelectorAll('.nav-link');
+        // Mobile Navigation Toggle
+        const navToggle = document.getElementById('nav-toggle');
+        const navMenu = document.getElementById('nav-menu');
+
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form Submission Handling
+        document.getElementById('grantForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            document.getElementById('grantSuccess').style.display = 'block';
+            this.reset();
+            setTimeout(() => {
+                document.getElementById('grantSuccess').style.display = 'none';
+            }, 5000);
+        });
+
+        document.getElementById('volunteerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            document.getElementById('volunteerSuccess').style.display = 'block';
+            this.reset();
+            setTimeout(() => {
+                document.getElementById('volunteerSuccess').style.display = 'none';
+            }, 5000);
+        });
+
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            document.getElementById('contactSuccess').style.display = 'block';
+            this.reset();
+            setTimeout(() => {
+                document.getElementById('contactSuccess').style.display = 'none';
+            }, 5000);
+        });
+
+        // Highlight active navigation link on scroll
+        window.addEventListener('scroll', () => {
+            let current = '';
             const sections = document.querySelectorAll('section');
             
-            // Set home as active by default
-            showSection('home');
-            
-            // Add click event to navigation links
-            navLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const sectionId = this.getAttribute('data-section');
-                    
-                    // Update active nav link
-                    navLinks.forEach(link => link.classList.remove('active'));
-                    this.classList.add('active');
-                    
-                    // Show the selected section
-                    showSection(sectionId);
-                });
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
             });
-            
-            // Function to show a specific section
-            function showSection(sectionId) {
-                sections.forEach(section => {
-                    section.classList.remove('active');
-                });
-                
-                document.getElementById(sectionId).classList.add('active');
-                
-                // Scroll to top when changing sections
-                window.scrollTo(0, 0);
-            }
-            
-            // Mobile Navigation Toggle
-            const navToggle = document.getElementById('nav-toggle');
-            const navMenu = document.getElementById('nav-menu');
-            
-            navToggle.addEventListener('click', () => {
-                navMenu.classList.toggle('active');
-            });
-            
-            // Close mobile menu when clicking on a link
+
             document.querySelectorAll('.nav-link').forEach(link => {
-                link.addEventListener('click', () => {
-                    navMenu.classList.remove('active');
-                });
-            });
-            
-            // Form Submission Handling
-            document.getElementById('grantForm').addEventListener('submit', function(e) {
-                e.preventDefault();
-                document.getElementById('grantSuccess').style.display = 'block';
-                this.reset();
-                setTimeout(() => {
-                    document.getElementById('grantSuccess').style.display = 'none';
-                }, 5000);
-            });
-            
-            document.getElementById('volunteerForm').addEventListener('submit', function(e) {
-                e.preventDefault();
-                document.getElementById('volunteerSuccess').style.display = 'block';
-                this.reset();
-                setTimeout(() => {
-                    document.getElementById('volunteerSuccess').style.display = 'none';
-                }, 5000);
-            });
-            
-            document.getElementById('contactForm').addEventListener('submit', function(e) {
-                e.preventDefault();
-                document.getElementById('contactSuccess').style.display = 'block';
-                this.reset();
-                setTimeout(() => {
-                    document.getElementById('contactSuccess').style.display = 'none';
-                }, 5000);
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
             });
         });
     </script>
