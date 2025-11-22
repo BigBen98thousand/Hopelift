@@ -14,7 +14,28 @@
             --white: #ffffff;
             --light-gray: #f5f5f5;
             --dark-gray: #333333;
+            --darker-gray: #1a1a1a;
             --gradient: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+            --dark-gradient: linear-gradient(135deg, #0d5c3a, #1a8c5c);
+            
+            /* Light mode variables */
+            --bg-color: var(--white);
+            --text-color: var(--dark-gray);
+            --card-bg: var(--light-gray);
+            --section-bg: var(--light-green);
+            --nav-bg: var(--white);
+            --footer-bg: var(--dark-green);
+            --footer-text: var(--white);
+        }
+
+        .dark-mode {
+            --bg-color: var(--darker-gray);
+            --text-color: var(--white);
+            --card-bg: #2a2a2a;
+            --section-bg: #1f1f1f;
+            --nav-bg: #1a1a1a;
+            --footer-bg: #0d3a26;
+            --footer-text: var(--white);
         }
 
         * {
@@ -22,11 +43,12 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            transition: background-color 0.3s, color 0.3s;
         }
 
         body {
-            background-color: var(--light-gray);
-            color: var(--dark-gray);
+            background-color: var(--bg-color);
+            color: var(--text-color);
             line-height: 1.6;
         }
 
@@ -39,9 +61,9 @@
 
         /* Header Styles */
         header {
-            background: var(--gradient);
-            color: var(--white);
-            padding: 20px 0;
+            background: var(--nav-bg);
+            color: var(--text-color);
+            padding: 15px 0;
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -54,24 +76,34 @@
             align-items: center;
         }
 
-        .logo {
+        .logo-container {
             display: flex;
             align-items: center;
             gap: 10px;
         }
 
         .logo-icon {
-            font-size: 2rem;
+            font-size: 1.8rem;
+            color: var(--primary-green);
         }
 
         .logo-text {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: 700;
+            color: var(--text-color);
         }
 
         .logo-tagline {
-            font-size: 0.8rem;
+            font-size: 0.7rem;
             opacity: 0.9;
+        }
+
+        .foundation-name {
+            flex-grow: 1;
+            text-align: center;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--primary-green);
         }
 
         nav ul {
@@ -80,11 +112,11 @@
         }
 
         nav ul li {
-            margin-left: 25px;
+            margin-left: 20px;
         }
 
         nav ul li a {
-            color: var(--white);
+            color: var(--text-color);
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s ease;
@@ -92,33 +124,64 @@
             border-radius: 4px;
         }
 
-        nav ul li a:hover {
-            background-color: rgba(255, 255, 255, 0.2);
+        nav ul li a:hover, nav ul li a.active {
+            background-color: var(--primary-green);
+            color: var(--white);
         }
 
         .mobile-menu {
             display: none;
             font-size: 1.5rem;
             cursor: pointer;
+            color: var(--text-color);
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            color: var(--text-color);
+            font-size: 1.2rem;
+            cursor: pointer;
+            margin-left: 15px;
         }
 
         /* Hero Section */
         .hero {
-            background: var(--gradient);
+            background: var(--dark-gradient);
             color: var(--white);
-            padding: 100px 0;
+            padding: 120px 0;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
         }
 
         .hero h1 {
-            font-size: 3rem;
+            font-size: 3.5rem;
             margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
 
         .hero p {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             max-width: 800px;
             margin: 0 auto 30px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
         }
 
         .btn {
@@ -132,23 +195,25 @@
             transition: all 0.3s ease;
             border: none;
             cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
 
         .btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
         }
 
         .btn-outline {
             background: transparent;
             border: 2px solid var(--white);
             color: var(--white);
+            margin-left: 15px;
         }
 
         /* Stats Section */
         .stats {
             padding: 80px 0;
-            background-color: var(--white);
+            background-color: var(--section-bg);
         }
 
         .stats-container {
@@ -173,13 +238,13 @@
 
         .stat-text {
             font-size: 1.1rem;
-            color: var(--dark-gray);
+            color: var(--text-color);
         }
 
         /* Programs Section */
         .programs {
             padding: 80px 0;
-            background-color: var(--light-green);
+            background-color: var(--bg-color);
         }
 
         .section-title {
@@ -196,7 +261,7 @@
         .section-title p {
             max-width: 700px;
             margin: 0 auto;
-            color: var(--dark-gray);
+            color: var(--text-color);
         }
 
         .programs-grid {
@@ -206,7 +271,7 @@
         }
 
         .program-card {
-            background: var(--white);
+            background: var(--card-bg);
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
@@ -238,7 +303,7 @@
         /* Story Section */
         .story {
             padding: 80px 0;
-            background-color: var(--white);
+            background-color: var(--section-bg);
         }
 
         .story-content {
@@ -250,12 +315,13 @@
         .story-content p {
             margin-bottom: 20px;
             font-size: 1.1rem;
+            color: var(--text-color);
         }
 
         /* Gallery Section */
         .gallery {
             padding: 80px 0;
-            background-color: var(--light-green);
+            background-color: var(--bg-color);
         }
 
         .gallery-grid {
@@ -296,13 +362,13 @@
         /* Form Styles */
         .form-section {
             padding: 80px 0;
-            background-color: var(--white);
+            background-color: var(--section-bg);
         }
 
         .form-container {
             max-width: 700px;
             margin: 0 auto;
-            background: var(--light-green);
+            background: var(--card-bg);
             padding: 40px;
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
@@ -316,7 +382,7 @@
             display: block;
             margin-bottom: 8px;
             font-weight: 600;
-            color: var(--dark-green);
+            color: var(--text-color);
         }
 
         .form-control {
@@ -326,6 +392,8 @@
             border-radius: 5px;
             font-size: 1rem;
             transition: all 0.3s ease;
+            background-color: var(--bg-color);
+            color: var(--text-color);
         }
 
         .form-control:focus {
@@ -341,8 +409,8 @@
 
         /* Footer */
         footer {
-            background: var(--dark-green);
-            color: var(--white);
+            background: var(--footer-bg);
+            color: var(--footer-text);
             padding: 60px 0 20px;
         }
 
@@ -413,9 +481,18 @@
             font-size: 0.9rem;
         }
 
-        /* Page-specific styles */
+        /* Page Sections */
+        .page-section {
+            display: none;
+            padding: 80px 0;
+        }
+
+        .page-section.active {
+            display: block;
+        }
+
         .page-hero {
-            background: var(--gradient);
+            background: var(--dark-gradient);
             color: var(--white);
             padding: 80px 0;
             text-align: center;
@@ -457,7 +534,7 @@
         }
 
         .contact-card {
-            background: var(--light-green);
+            background: var(--card-bg);
             padding: 30px;
             border-radius: 10px;
             text-align: center;
@@ -476,13 +553,17 @@
                 display: block;
             }
 
+            .foundation-name {
+                font-size: 1.3rem;
+            }
+
             nav ul {
                 display: none;
                 position: absolute;
-                top: 80px;
+                top: 70px;
                 left: 0;
                 width: 100%;
-                background: var(--dark-green);
+                background: var(--nav-bg);
                 flex-direction: column;
                 padding: 20px 0;
                 box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
@@ -503,12 +584,17 @@
             }
 
             .hero h1 {
-                font-size: 2.2rem;
+                font-size: 2.5rem;
             }
 
             .stats-container {
                 flex-direction: column;
                 gap: 40px;
+            }
+
+            .btn-outline {
+                margin-left: 0;
+                margin-top: 15px;
             }
         }
     </style>
@@ -517,7 +603,11 @@
     <!-- Header -->
     <header>
         <div class="container header-container">
-            <div class="logo">
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+            <div class="foundation-name">HopeLift Empowerment Foundation</div>
+            <div class="logo-container">
                 <div class="logo-icon">
                     <i class="fas fa-hands-helping"></i>
                 </div>
@@ -526,35 +616,35 @@
                     <div class="logo-tagline">Empowerment Foundation</div>
                 </div>
             </div>
-            <div class="mobile-menu">
-                <i class="fas fa-bars"></i>
-            </div>
             <nav>
                 <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="gallery.html">Gallery</a></li>
-                    <li><a href="register.html">Volunteer</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="#home" class="nav-link active">Home</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#gallery" class="nav-link">Gallery</a></li>
+                    <li><a href="#volunteer" class="nav-link">Volunteer</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
             </nav>
+            <button class="theme-toggle" id="themeToggle">
+                <i class="fas fa-moon"></i>
+            </button>
         </div>
     </header>
 
-    <!-- Home Page Content -->
-    <main id="home-page">
+    <!-- Home Section -->
+    <section id="home" class="page-section active">
         <!-- Hero Section -->
-        <section class="hero">
-            <div class="container">
+        <div class="hero">
+            <div class="container hero-content">
                 <h1>Restoring Dignity. Rebuilding Lives.</h1>
                 <p>Empowering vulnerable individuals and communities through sustainable programs that create lasting change.</p>
-                <a href="register.html" class="btn">Become a Volunteer</a>
+                <a href="#volunteer" class="btn">Become a Volunteer</a>
                 <a href="#programs" class="btn btn-outline">Our Programs</a>
             </div>
-        </section>
+        </div>
 
         <!-- Stats Section -->
-        <section class="stats">
+        <div class="stats">
             <div class="container stats-container">
                 <div class="stat-item">
                     <div class="stat-number">500+</div>
@@ -569,10 +659,10 @@
                     <div class="stat-text">Core Programs</div>
                 </div>
             </div>
-        </section>
+        </div>
 
         <!-- Programs Section -->
-        <section class="programs" id="programs">
+        <div class="programs" id="programs">
             <div class="container">
                 <div class="section-title">
                     <h2>Our Programs</h2>
@@ -626,10 +716,10 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
 
         <!-- Story Section -->
-        <section class="story">
+        <div class="story">
             <div class="container">
                 <div class="section-title">
                     <h2>Our Story</h2>
@@ -643,10 +733,10 @@
                     <p>This revelation became the seed of the NGO — a platform built not just to provide temporary relief, but to create long-term empowerment, independence, and transformation.</p>
                 </div>
             </div>
-        </section>
+        </div>
 
         <!-- Gallery Preview Section -->
-        <section class="gallery">
+        <div class="gallery">
             <div class="container">
                 <div class="section-title">
                     <h2>Gallery</h2>
@@ -674,12 +764,335 @@
                         </div>
                     </div>
                 </div>
-                <div style="text-align: center; margin-top: 40px;">
-                    <a href="gallery.html" class="btn">View Full Gallery</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="page-section">
+        <div class="page-hero">
+            <div class="container">
+                <h1>About Us</h1>
+                <p>Learn more about our mission, vision, and the team behind HopeLift Empowerment Foundation</p>
+            </div>
+        </div>
+
+        <div class="about-content">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Our Vision & Mission</h2>
+                </div>
+                
+                <div class="story-content">
+                    <h3>Vision Statement</h3>
+                    <p>To create a society where every vulnerable person has equal access to opportunities, support, and sustainable livelihood.</p>
+                    
+                    <h3>Mission Statement</h3>
+                    <ul style="text-align: left; max-width: 700px; margin: 20px auto;">
+                        <li>To empower widows, widowers, and the less privileged with financial support and skills.</li>
+                        <li>To provide start-up grants for small businesses.</li>
+                        <li>To offer emotional and practical assistance for long-term stability and dignity.</li>
+                        <li>To reach and transform 15 lives every year through empowerment.</li>
+                        <li>To offer personalized one-on-one counselling sessions to individuals seeking emotional or mental support.</li>
+                    </ul>
+                    
+                    <h3>Our Story</h3>
+                    <p>The story of this organization began long before it had a name. In 2011, during her NYSC service year at Ilesha General Hospital, our founder discovered how deeply her passion for nursing could extend beyond the clinical space. As a nurse, caring for people came naturally to her, and this compassion became the foundation for everything that followed.</p>
+                    
+                    <p>While serving in the hospital, she encountered patients who could not afford even the most basic items required for their stay. Guided by her nursing instinct to protect, comfort, and uplift, she began providing toiletries and essential supplies from her own resources. What started as simple acts of kindness soon evolved into a lifelong calling.</p>
+                    
+                    <p>Her service expanded to orphanage homes, where she committed 10% of her income every month to purchase medications for children. Her December salary was dedicated to providing clothing for widows and sharing food packages with families struggling to meet their daily needs. Through these experiences, she learned that true care goes far beyond treatment — it is about restoring dignity, hope, and a sense of belonging.</p>
+                    
+                    <p>In 2021, she relocated to Canada, opening a new chapter in her journey. With a broader perspective on global needs and opportunities, she continued her mission by empowering widows and widowers with financial support to start small-scale businesses. She also extended her outreach to vulnerable individuals and patients who needed assistance, fueled by the same compassionate spirit that shaped her years in nursing.</p>
+                    
+                    <p>By 2025, her passion expanded into research on sustainable solutions for families and individuals in Nigeria. She discovered the potential of POS businesses and other small-scale ventures, successfully setting up three individuals with stable sources of income. That success sparked a powerful realization:</p>
+                    
+                    <p><em>"Instead of giving people fish, I can help them learn to fish."</em></p>
+                    
+                    <p>This revelation became the seed of the NGO — a platform built not just to provide temporary relief, but to create long-term empowerment, independence, and transformation.</p>
+                    
+                    <p>Her story reflects the heart of a nurse and a mother, the vision of a leader, and the dedication of a woman committed to uplifting communities. From a compassionate young nurse in Ilesha to the founder of an organization touching lives across continents, she continues to lead with empathy, integrity, and an unshakeable belief that every person deserves a chance to thrive, irrespective of their past.</p>
+                </div>
+
+                <div class="section-title" style="margin-top: 60px;">
+                    <h2>Our Team</h2>
+                </div>
+                
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="member-photo">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h3>Founder</h3>
+                        <p>Compassionate nurse and visionary leader with over 15 years of experience in community service and empowerment initiatives.</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-photo">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Volunteers</h3>
+                        <p>Dedicated team of volunteers across Nigeria and Canada who work tirelessly to bring our programs to life.</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-photo">
+                            <i class="fas fa-hand-holding-heart"></i>
+                        </div>
+                        <h3>Partners</h3>
+                        <p>Collaborative organizations and individuals who support our mission and help expand our impact.</p>
+                    </div>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="page-section">
+        <div class="page-hero">
+            <div class="container">
+                <h1>Gallery</h1>
+                <p>Visual stories of impact, transformation, and hope from our community programs</p>
+            </div>
+        </div>
+
+        <div class="gallery">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Our Work in Action</h2>
+                    <p>These images capture the moments of transformation and hope that our programs create in communities.</p>
+                </div>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder">
+                            <i class="fas fa-hand-holding-usd"></i>
+                            <div>Grant Presentations</div>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder">
+                            <i class="fas fa-graduation-cap"></i>
+                            <div>Skills Training</div>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder">
+                            <i class="fas fa-utensils"></i>
+                            <div>Community Outreach</div>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder">
+                            <i class="fas fa-users"></i>
+                            <div>Team Photos</div>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder">
+                            <i class="fas fa-heart"></i>
+                            <div>Widows Support</div>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                            <div>Financial Literacy</div>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder">
+                            <i class="fas fa-seedling"></i>
+                            <div>Youth Empowerment</div>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder">
+                            <i class="fas fa-hands-helping"></i>
+                            <div>Volunteer Activities</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Volunteer Section -->
+    <section id="volunteer" class="page-section">
+        <div class="page-hero">
+            <div class="container">
+                <h1>Join Our Mission</h1>
+                <p>Become a volunteer and help us restore dignity and rebuild lives in vulnerable communities</p>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Volunteer Registration</h2>
+                    <p>Fill out the form below to join our team of dedicated volunteers making a difference</p>
+                </div>
+                
+                <div class="form-container">
+                    <form id="volunteerForm" action="https://formspree.io/f/your-form-id" method="POST">
+                        <div class="form-group">
+                            <label for="fullName">Full Name</label>
+                            <input type="text" id="fullName" name="fullName" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="location">Location</label>
+                            <input type="text" id="location" name="location" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="skills">Skills & Expertise</label>
+                            <textarea id="skills" name="skills" class="form-control" placeholder="Tell us about your skills, experience, or how you'd like to contribute"></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="availability">Availability</label>
+                            <select id="availability" name="availability" class="form-control" required>
+                                <option value="">Select your availability</option>
+                                <option value="weekdays">Weekdays</option>
+                                <option value="weekends">Weekends</option>
+                                <option value="both">Both weekdays and weekends</option>
+                                <option value="flexible">Flexible</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="interest">Area of Interest</label>
+                            <select id="interest" name="interest" class="form-control" required>
+                                <option value="">Select your area of interest</option>
+                                <option value="skills-training">Skills Training</option>
+                                <option value="business-grants">Business Grants</option>
+                                <option value="widows-support">Widows & Widowers Support</option>
+                                <option value="financial-literacy">Financial Literacy</option>
+                                <option value="youth-empowerment">Youth Empowerment</option>
+                                <option value="fundraising">Fundraising</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <button type="submit" class="btn" style="width: 100%;">Submit Application</button>
+                    </form>
+                </div>
+                
+                <div class="section-title" style="margin-top: 60px;">
+                    <h2>Other Ways to Get Involved</h2>
+                </div>
+                
+                <div class="programs-grid">
+                    <div class="program-card">
+                        <div class="program-icon">
+                            <i class="fas fa-donate"></i>
+                        </div>
+                        <div class="program-content">
+                            <h3>Donate</h3>
+                            <p>Your financial contributions help us expand our programs and reach more people in need.</p>
+                        </div>
+                    </div>
+                    <div class="program-card">
+                        <div class="program-icon">
+                            <i class="fas fa-hands-helping"></i>
+                        </div>
+                        <div class="program-content">
+                            <h3>Partner With Us</h3>
+                            <p>Are you part of an organization that shares our vision? Let's collaborate to create greater impact.</p>
+                        </div>
+                    </div>
+                    <div class="program-card">
+                        <div class="program-icon">
+                            <i class="fas fa-bullhorn"></i>
+                        </div>
+                        <div class="program-content">
+                            <h3>Spread the Word</h3>
+                            <p>Help us raise awareness by sharing our mission with your network and community.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="page-section">
+        <div class="page-hero">
+            <div class="container">
+                <h1>Contact Us</h1>
+                <p>Get in touch with us to learn more about our programs or how you can support our mission</p>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Send Us a Message</h2>
+                    <p>We'd love to hear from you. Fill out the form below and we'll get back to you as soon as possible.</p>
+                </div>
+                
+                <div class="form-container">
+                    <form id="contactForm" action="https://formspree.io/f/your-form-id" method="POST">
+                        <div class="form-group">
+                            <label for="contactName">Full Name</label>
+                            <input type="text" id="contactName" name="contactName" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contactEmail">Email Address</label>
+                            <input type="email" id="contactEmail" name="contactEmail" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" class="form-control" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn" style="width: 100%;">Send Message</button>
+                    </form>
+                </div>
+                
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <h3>Phone</h3>
+                        <p>+234 XXX XXX XXXX</p>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3>Email</h3>
+                        <p>info@hopeliftfoundation.org</p>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3>Locations</h3>
+                        <p>Nigeria & Canada</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer>
@@ -697,11 +1110,11 @@
                 </div>
                 <div class="footer-column">
                     <h3>Quick Links</h3>
-                    <a href="index.html">Home</a>
-                    <a href="about.html">About Us</a>
-                    <a href="gallery.html">Gallery</a>
-                    <a href="register.html">Volunteer</a>
-                    <a href="contact.html">Contact</a>
+                    <a href="#home" class="footer-nav-link">Home</a>
+                    <a href="#about" class="footer-nav-link">About Us</a>
+                    <a href="#gallery" class="footer-nav-link">Gallery</a>
+                    <a href="#volunteer" class="footer-nav-link">Volunteer</a>
+                    <a href="#contact" class="footer-nav-link">Contact</a>
                 </div>
                 <div class="footer-column">
                     <h3>Contact Info</h3>
@@ -722,25 +1135,76 @@
             document.querySelector('nav ul').classList.toggle('show');
         });
 
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = themeToggle.querySelector('i');
+        
+        themeToggle.addEventListener('click', function() {
+            document.body.classList.toggle('dark-mode');
+            
+            if (document.body.classList.contains('dark-mode')) {
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            } else {
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+            }
+            
+            // Save theme preference to localStorage
+            const isDarkMode = document.body.classList.contains('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+        });
+        
+        // Check for saved theme preference
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.body.classList.add('dark-mode');
+            themeIcon.classList.remove('fa-moon');
+            themeIcon.classList.add('fa-sun');
+        }
+
+        // Page navigation
+        document.querySelectorAll('.nav-link, .footer-nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
                 e.preventDefault();
                 
-                const targetId = this.getAttribute('href');
-                if(targetId === '#') return;
+                const targetId = this.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
                 
-                const targetElement = document.querySelector(targetId);
-                if(targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
+                // Hide all sections
+                document.querySelectorAll('.page-section').forEach(section => {
+                    section.classList.remove('active');
+                });
+                
+                // Show target section
+                if (targetSection) {
+                    targetSection.classList.add('active');
+                    
+                    // Update active nav link
+                    document.querySelectorAll('.nav-link').forEach(navLink => {
+                        navLink.classList.remove('active');
                     });
+                    this.classList.add('active');
                     
                     // Close mobile menu if open
                     document.querySelector('nav ul').classList.remove('show');
+                    
+                    // Scroll to top of page
+                    window.scrollTo(0, 0);
                 }
             });
+        });
+
+        // Form submission handling
+        document.getElementById('volunteerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your interest in volunteering! We will contact you soon.');
+            this.reset();
+        });
+
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            this.reset();
         });
     </script>
 </body>
