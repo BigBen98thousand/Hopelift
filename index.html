@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HopeLift Foundation</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary-purple: #6a0dad;
@@ -43,7 +44,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Poppins', sans-serif;
             transition: background-color 0.3s, color 0.3s;
         }
 
@@ -83,9 +84,17 @@
             gap: 10px;
         }
 
-        .logo-icon {
-            font-size: 1.8rem;
-            color: var(--white);
+        .logo {
+            width: 50px;
+            height: 50px;
+            background-color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-purple);
+            font-weight: bold;
+            font-size: 1.2rem;
         }
 
         .logo-text {
@@ -134,23 +143,13 @@
 
         /* Hero Section */
         .hero {
-            background: var(--gradient);
+            background: linear-gradient(rgba(106, 13, 173, 0.7), rgba(138, 43, 226, 0.7)), url('https://images.unsplash.com/photo-1559027615-cd4628902d4a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1474&q=80');
+            background-size: cover;
+            background-position: center;
             color: var(--white);
             padding: 120px 0;
             text-align: center;
             position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.3);
-            z-index: 1;
         }
 
         .hero-content {
@@ -334,16 +333,6 @@
             transform: scale(1.1);
         }
 
-        .gallery-placeholder {
-            background: var(--gradient);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            font-size: 1.2rem;
-            font-weight: 600;
-        }
-
         /* Form Styles */
         .form-section {
             padding: 80px 0;
@@ -478,7 +467,9 @@
         }
 
         .page-hero {
-            background: var(--dark-gradient);
+            background: linear-gradient(rgba(106, 13, 173, 0.7), rgba(138, 43, 226, 0.7)), url('https://images.unsplash.com/photo-1559027615-cd4628902d4a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1474&q=80');
+            background-size: cover;
+            background-position: center;
             color: var(--white);
             padding: 80px 0;
             text-align: center;
@@ -539,11 +530,12 @@
             border-radius: 10px;
             overflow: hidden;
             margin-bottom: 30px;
+            height: 400px;
         }
 
         .image-container img {
             width: 100%;
-            height: 300px;
+            height: 100%;
             object-fit: cover;
             display: block;
         }
@@ -561,6 +553,36 @@
             color: white;
             font-size: 1.5rem;
             font-weight: bold;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Content Sections */
+        .content-section {
+            padding: 60px 0;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            align-items: center;
+        }
+
+        .content-text {
+            text-align: left;
+        }
+
+        .content-image {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .content-image img {
+            width: 100%;
+            height: auto;
+            display: block;
         }
 
         /* Responsive Styles */
@@ -608,6 +630,10 @@
                 margin-left: 0;
                 margin-top: 15px;
             }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -618,21 +644,20 @@
             <div class="mobile-menu">
                 <i class="fas fa-bars"></i>
             </div>
+            <div class="logo-container">
+                <div class="logo">HL</div>
+                <div class="logo-text">HopeLift</div>
+            </div>
             <nav>
                 <ul>
                     <li><a href="#home" class="nav-link active">Home</a></li>
                     <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#programs" class="nav-link">Programs</a></li>
                     <li><a href="#gallery" class="nav-link">Gallery</a></li>
                     <li><a href="#volunteer" class="nav-link">Volunteer</a></li>
                     <li><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
             </nav>
-            <div class="logo-container">
-                <div class="logo-icon">
-                    <i class="fas fa-hands-helping"></i>
-                </div>
-                <div class="logo-text">HopeLift</div>
-            </div>
             <button class="theme-toggle" id="themeToggle">
                 <i class="fas fa-moon"></i>
             </button>
@@ -666,11 +691,15 @@
                     <div class="stat-number">5</div>
                     <div class="stat-text">Core Programs</div>
                 </div>
+                <div class="stat-item">
+                    <div class="stat-number">3</div>
+                    <div class="stat-text">Countries</div>
+                </div>
             </div>
         </div>
 
-        <!-- Programs Section -->
-        <div class="programs" id="programs">
+        <!-- Programs Preview Section -->
+        <div class="programs">
             <div class="container">
                 <div class="section-title">
                     <h2>Our Programs</h2>
@@ -705,14 +734,55 @@
                         </div>
                     </div>
                 </div>
+                <div style="text-align: center; margin-top: 40px;">
+                    <a href="#programs" class="btn">View All Programs</a>
+                </div>
             </div>
         </div>
 
-        <!-- Image Section -->
-        <div class="container">
-            <div class="image-container">
-                <div class="image-overlay">
-                    Empowering Communities Through Sustainable Programs
+        <!-- Story Preview Section -->
+        <div class="story">
+            <div class="container">
+                <div class="content-grid">
+                    <div class="content-text">
+                        <div class="section-title">
+                            <h2>Our Story</h2>
+                            <p>The story of HopeLift began in 2011 when our founder, during her NYSC service at Ilesha General Hospital, discovered her passion for extending care beyond clinical settings.</p>
+                        </div>
+                        <p>While serving in the hospital, she encountered patients who couldn't afford basic necessities. Guided by her nursing instinct, she began providing toiletries and essential supplies from her own resources.</p>
+                        <p>Her service expanded to orphanage homes, where she committed 10% of her income monthly to purchase medications for children. Her December salary was dedicated to providing clothing for widows and food packages for struggling families.</p>
+                        <a href="#about" class="btn" style="margin-top: 20px;">Read Our Full Story</a>
+                    </div>
+                    <div class="content-image">
+                        <img src="https://images.unsplash.com/photo-1527525443983-6e60c75fff46?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=685&q=80" alt="Community support">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Gallery Preview Section -->
+        <div class="gallery">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Gallery</h2>
+                    <p>Visual stories of impact, transformation, and hope from our community programs.</p>
+                </div>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Skills training">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1474&q=80" alt="Community outreach">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Volunteer work">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Education program">
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 40px;">
+                    <a href="#gallery" class="btn">View Full Gallery</a>
                 </div>
             </div>
         </div>
@@ -729,31 +799,168 @@
 
         <div class="about-content">
             <div class="container">
-                <div class="section-title">
-                    <h2>Our Vision & Mission</h2>
+                <div class="content-section">
+                    <div class="content-grid">
+                        <div class="content-image">
+                            <img src="https://images.unsplash.com/photo-1527525443983-6e60c75fff46?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=685&q=80" alt="Community support">
+                        </div>
+                        <div class="content-text">
+                            <h2>Our Vision & Mission</h2>
+                            <h3>Vision Statement</h3>
+                            <p>To create a society where every vulnerable person has equal access to opportunities, support, and sustainable livelihood.</p>
+                            
+                            <h3>Mission Statement</h3>
+                            <p>To empower widows, widowers, and the less privileged with financial support and skills, providing start-up grants for small businesses and offering emotional support for long-term stability and dignity.</p>
+                        </div>
+                    </div>
                 </div>
-                
-                <div class="story-content">
-                    <h3>Vision Statement</h3>
-                    <p>To create a society where every vulnerable person has equal access to opportunities, support, and sustainable livelihood.</p>
-                    
-                    <h3>Mission Statement</h3>
-                    <p>To empower widows, widowers, and the less privileged with financial support and skills, providing start-up grants for small businesses and offering emotional support for long-term stability and dignity.</p>
-                    
-                    <h3>Our Story</h3>
-                    <p>The story of HopeLift began in 2011 when our founder, during her NYSC service at Ilesha General Hospital, discovered her passion for extending care beyond clinical settings.</p>
-                    
-                    <p>While serving in the hospital, she encountered patients who couldn't afford basic necessities. Guided by her nursing instinct, she began providing toiletries and essential supplies from her own resources.</p>
-                    
-                    <p>Her service expanded to orphanage homes, where she committed 10% of her income monthly to purchase medications for children. Her December salary was dedicated to providing clothing for widows and food packages for struggling families.</p>
-                    
-                    <p>In 2021, she relocated to Canada, continuing her mission by empowering widows and widowers with financial support to start small-scale businesses.</p>
-                    
-                    <p>By 2025, her passion expanded into research on sustainable solutions, successfully setting up individuals with stable income sources through POS businesses and other ventures.</p>
-                    
-                    <p>This led to the powerful realization: "Instead of giving people fish, I can help them learn to fish."</p>
-                    
-                    <p>This became the seed of HopeLift Foundation — a platform built not just for temporary relief, but for long-term empowerment, independence, and transformation.</p>
+
+                <div class="content-section">
+                    <div class="content-grid">
+                        <div class="content-text">
+                            <h2>Our Story</h2>
+                            <p>The story of HopeLift began in 2011 when our founder, during her NYSC service at Ilesha General Hospital, discovered her passion for extending care beyond clinical settings.</p>
+                            
+                            <p>While serving in the hospital, she encountered patients who couldn't afford basic necessities. Guided by her nursing instinct, she began providing toiletries and essential supplies from her own resources.</p>
+                            
+                            <p>Her service expanded to orphanage homes, where she committed 10% of her income monthly to purchase medications for children. Her December salary was dedicated to providing clothing for widows and food packages for struggling families.</p>
+                            
+                            <p>In 2021, she relocated to Canada, continuing her mission by empowering widows and widowers with financial support to start small-scale businesses.</p>
+                        </div>
+                        <div class="content-image">
+                            <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1474&q=80" alt="Community outreach">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <div class="content-grid">
+                        <div class="content-image">
+                            <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Volunteer work">
+                        </div>
+                        <div class="content-text">
+                            <h2>Our Impact</h2>
+                            <p>By 2025, her passion expanded into research on sustainable solutions, successfully setting up individuals with stable income sources through POS businesses and other ventures.</p>
+                            
+                            <p>This led to the powerful realization: "Instead of giving people fish, I can help them learn to fish."</p>
+                            
+                            <p>This became the seed of HopeLift Foundation — a platform built not just for temporary relief, but for long-term empowerment, independence, and transformation.</p>
+                            
+                            <p>Today, HopeLift operates in Nigeria and Canada, with plans to expand to other regions where vulnerable communities need our support.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section id="programs" class="page-section">
+        <div class="page-hero">
+            <div class="container">
+                <h1>Our Programs</h1>
+                <p>Comprehensive empowerment initiatives designed to create sustainable change</p>
+            </div>
+        </div>
+
+        <div class="programs">
+            <div class="container">
+                <div class="programs-grid">
+                    <div class="program-card">
+                        <div class="program-icon">
+                            <i class="fas fa-business-time"></i>
+                        </div>
+                        <div class="program-content">
+                            <h3>Start-Up Business Grants</h3>
+                            <p>We provide grants for petty trading, small businesses, and local income-generating ventures to help beneficiaries become self-sufficient. Our approach includes:</p>
+                            <ul>
+                                <li>Micro-grants for small-scale businesses</li>
+                                <li>Business planning assistance</li>
+                                <li>Market linkage support</li>
+                                <li>Ongoing mentorship</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="program-card">
+                        <div class="program-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="program-content">
+                            <h3>Skills Training Program</h3>
+                            <p>We offer training in various marketable skills to equip individuals for sustainable livelihoods:</p>
+                            <ul>
+                                <li>Hairdressing and beauty therapy</li>
+                                <li>Tailoring and fashion design</li>
+                                <li>Baking and catering</li>
+                                <li>Agricultural farming techniques</li>
+                                <li>POS operations and small business management</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="program-card">
+                        <div class="program-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <div class="program-content">
+                            <h3>Widows & Widowers Support</h3>
+                            <p>Our comprehensive support program for those who have lost their partners includes:</p>
+                            <ul>
+                                <li>Monthly food packs and essential supplies</li>
+                                <li>Emotional support and counseling</li>
+                                <li>Regular health checks and medical assistance</li>
+                                <li>Emergency welfare support</li>
+                                <li>Community integration activities</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="program-card">
+                        <div class="program-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="program-content">
+                            <h3>Financial Literacy & Mentorship</h3>
+                            <p>We teach beneficiaries how to manage money effectively and grow their businesses:</p>
+                            <ul>
+                                <li>Basic financial management skills</li>
+                                <li>Savings and investment strategies</li>
+                                <li>Credit management education</li>
+                                <li>One-on-one business mentorship</li>
+                                <li>Access to financial services</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="program-card">
+                        <div class="program-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="program-content">
+                            <h3>Youth Empowerment Bootcamp</h3>
+                            <p>Short intensive trainings for young people with business ideas but limited resources:</p>
+                            <ul>
+                                <li>Entrepreneurship fundamentals</li>
+                                <li>Digital skills training</li>
+                                <li>Leadership development</li>
+                                <li>Pitch competitions with seed funding</li>
+                                <li>Post-training support and networking</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="program-card">
+                        <div class="program-icon">
+                            <i class="fas fa-hand-holding-medical"></i>
+                        </div>
+                        <div class="program-content">
+                            <h3>Health & Wellness Program</h3>
+                            <p>Supporting the overall wellbeing of our beneficiaries through:</p>
+                            <ul>
+                                <li>Regular health screening camps</li>
+                                <li>Mental health support services</li>
+                                <li>Health education workshops</li>
+                                <li>Access to affordable healthcare</li>
+                                <li>Nutritional support programs</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -772,32 +979,32 @@
             <div class="container">
                 <div class="section-title">
                     <h2>Our Work in Action</h2>
-                    <p>These images capture the moments of transformation and hope that our programs create in communities.</p>
+                    <p>These images capture the moments of transformation and hope that our programs create in communities across Nigeria and Canada.</p>
                 </div>
                 <div class="gallery-grid">
                     <div class="gallery-item">
-                        <div class="gallery-placeholder">
-                            <i class="fas fa-hand-holding-usd"></i>
-                            <div>Grant Presentations</div>
-                        </div>
+                        <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Skills training">
                     </div>
                     <div class="gallery-item">
-                        <div class="gallery-placeholder">
-                            <i class="fas fa-graduation-cap"></i>
-                            <div>Skills Training</div>
-                        </div>
+                        <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1474&q=80" alt="Community outreach">
                     </div>
                     <div class="gallery-item">
-                        <div class="gallery-placeholder">
-                            <i class="fas fa-utensils"></i>
-                            <div>Community Outreach</div>
-                        </div>
+                        <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Volunteer work">
                     </div>
                     <div class="gallery-item">
-                        <div class="gallery-placeholder">
-                            <i class="fas fa-users"></i>
-                            <div>Team Photos</div>
-                        </div>
+                        <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Education program">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Business training">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1551836026-d5cbc961c910?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Community meeting">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1220&q=80" alt="Wellness program">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=688&q=80" alt="Success celebration">
                     </div>
                 </div>
             </div>
@@ -815,12 +1022,29 @@
 
         <div class="form-section">
             <div class="container">
-                <div class="section-title">
-                    <h2>Volunteer Registration</h2>
-                    <p>Fill out the form below to join our team of dedicated volunteers making a difference</p>
+                <div class="content-grid">
+                    <div class="content-text">
+                        <div class="section-title">
+                            <h2>Volunteer With Us</h2>
+                            <p>Our volunteers are the heart of HopeLift Foundation. Join our dedicated team and make a tangible difference in the lives of vulnerable individuals and communities.</p>
+                        </div>
+                        <p>As a HopeLift volunteer, you'll have the opportunity to:</p>
+                        <ul>
+                            <li>Participate in community outreach programs</li>
+                            <li>Mentor beneficiaries in our skills training programs</li>
+                            <li>Assist with administrative and organizational tasks</li>
+                            <li>Help with fundraising and awareness campaigns</li>
+                            <li>Share your professional expertise in areas like business, health, or education</li>
+                        </ul>
+                        <p>We welcome volunteers from all backgrounds and skill levels. Whether you can commit a few hours a week or participate in specific projects, your contribution matters.</p>
+                    </div>
+                    <div class="content-image">
+                        <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1220&q=80" alt="Volunteers at work">
+                    </div>
                 </div>
                 
-                <div class="form-container">
+                <div class="form-container" style="margin-top: 60px;">
+                    <h2 style="text-align: center; margin-bottom: 30px;">Volunteer Registration</h2>
                     <form id="volunteerForm" action="https://formspree.io/f/your-form-id" method="POST">
                         <div class="form-group">
                             <label for="fullName">Full Name</label>
@@ -838,8 +1062,38 @@
                         </div>
                         
                         <div class="form-group">
+                            <label for="location">Location</label>
+                            <input type="text" id="location" name="location" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
                             <label for="skills">Skills & Expertise</label>
                             <textarea id="skills" name="skills" class="form-control" placeholder="Tell us about your skills, experience, or how you'd like to contribute"></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="availability">Availability</label>
+                            <select id="availability" name="availability" class="form-control" required>
+                                <option value="">Select your availability</option>
+                                <option value="weekdays">Weekdays</option>
+                                <option value="weekends">Weekends</option>
+                                <option value="both">Both weekdays and weekends</option>
+                                <option value="flexible">Flexible</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="interest">Area of Interest</label>
+                            <select id="interest" name="interest" class="form-control" required>
+                                <option value="">Select your area of interest</option>
+                                <option value="skills-training">Skills Training</option>
+                                <option value="business-grants">Business Grants</option>
+                                <option value="widows-support">Widows & Widowers Support</option>
+                                <option value="financial-literacy">Financial Literacy</option>
+                                <option value="youth-empowerment">Youth Empowerment</option>
+                                <option value="fundraising">Fundraising</option>
+                                <option value="other">Other</option>
+                            </select>
                         </div>
                         
                         <button type="submit" class="btn" style="width: 100%;">Submit Application</button>
@@ -860,12 +1114,28 @@
 
         <div class="form-section">
             <div class="container">
-                <div class="section-title">
-                    <h2>Send Us a Message</h2>
-                    <p>We'd love to hear from you. Fill out the form below and we'll get back to you as soon as possible.</p>
+                <div class="content-grid">
+                    <div class="content-text">
+                        <div class="section-title">
+                            <h2>Get In Touch</h2>
+                            <p>We'd love to hear from you. Whether you have questions about our programs, want to partner with us, or need support, our team is here to help.</p>
+                        </div>
+                        <p>You can reach us through any of the following channels:</p>
+                        <ul>
+                            <li><strong>Phone:</strong> +234 XXX XXX XXXX (Nigeria) / +1 XXX XXX XXXX (Canada)</li>
+                            <li><strong>Email:</strong> info@hopeliftfoundation.org</li>
+                            <li><strong>Office Hours:</strong> Monday - Friday, 9:00 AM - 5:00 PM</li>
+                            <li><strong>Social Media:</strong> Follow us for updates on our programs and events</li>
+                        </ul>
+                        <p>For specific program inquiries, please mention the program name in your message so we can direct you to the right team member.</p>
+                    </div>
+                    <div class="content-image">
+                        <img src="https://images.unsplash.com/photo-1551836026-d5cbc961c910?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Community meeting">
+                    </div>
                 </div>
                 
-                <div class="form-container">
+                <div class="form-container" style="margin-top: 60px;">
+                    <h2 style="text-align: center; margin-bottom: 30px;">Send Us a Message</h2>
                     <form id="contactForm" action="https://formspree.io/f/your-form-id" method="POST">
                         <div class="form-group">
                             <label for="contactName">Full Name</label>
@@ -898,6 +1168,7 @@
                         </div>
                         <h3>Phone</h3>
                         <p>+234 XXX XXX XXXX</p>
+                        <p>+1 XXX XXX XXXX</p>
                     </div>
                     
                     <div class="contact-card">
@@ -906,6 +1177,7 @@
                         </div>
                         <h3>Email</h3>
                         <p>info@hopeliftfoundation.org</p>
+                        <p>support@hopeliftfoundation.org</p>
                     </div>
                     
                     <div class="contact-card">
@@ -913,7 +1185,8 @@
                             <i class="fas fa-map-marker-alt"></i>
                         </div>
                         <h3>Locations</h3>
-                        <p>Nigeria & Canada</p>
+                        <p>Nigeria Office</p>
+                        <p>Canada Office</p>
                     </div>
                 </div>
             </div>
@@ -926,7 +1199,7 @@
             <div class="footer-content">
                 <div class="footer-column">
                     <h3>About Us</h3>
-                    <p>HopeLift Foundation is dedicated to restoring dignity and rebuilding lives through sustainable empowerment programs.</p>
+                    <p>HopeLift Foundation is dedicated to restoring dignity and rebuilding lives through sustainable empowerment programs in Nigeria, Canada, and beyond.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
@@ -938,6 +1211,7 @@
                     <h3>Quick Links</h3>
                     <a href="#home" class="footer-nav-link">Home</a>
                     <a href="#about" class="footer-nav-link">About Us</a>
+                    <a href="#programs" class="footer-nav-link">Programs</a>
                     <a href="#gallery" class="footer-nav-link">Gallery</a>
                     <a href="#volunteer" class="footer-nav-link">Volunteer</a>
                     <a href="#contact" class="footer-nav-link">Contact</a>
@@ -947,6 +1221,14 @@
                     <p><i class="fas fa-phone"></i> +234 XXX XXX XXXX</p>
                     <p><i class="fas fa-envelope"></i> info@hopeliftfoundation.org</p>
                     <p><i class="fas fa-map-marker-alt"></i> Nigeria & Canada</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to our newsletter to receive updates on our programs and impact stories.</p>
+                    <form>
+                        <input type="email" class="form-control" placeholder="Your email address" style="margin-bottom: 10px;">
+                        <button type="submit" class="btn" style="width: 100%;">Subscribe</button>
+                    </form>
                 </div>
             </div>
             <div class="copyright">
