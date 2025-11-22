@@ -19,6 +19,9 @@
             --darker-gray: #1a1a1a;
             --gradient: linear-gradient(135deg, var(--primary-purple), var(--secondary-purple));
             --dark-gradient: linear-gradient(135deg, #4b0082, #6a0dad);
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
             
             /* Light mode variables */
             --bg-color: var(--white);
@@ -63,13 +66,15 @@
 
         /* Header Styles */
         header {
-            background: var(--nav-bg);
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--glass-border);
             color: var(--white);
             padding: 15px 0;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
         .header-container {
@@ -147,7 +152,7 @@
             background-size: cover;
             background-position: center;
             color: var(--white);
-            padding: 120px 0;
+            padding: 150px 0 120px;
             text-align: center;
             position: relative;
         }
@@ -196,57 +201,38 @@
             margin-left: 15px;
         }
 
-        /* Stats Section */
-        .stats {
-            padding: 80px 0;
-            background-color: var(--section-bg);
-        }
-
-        .stats-container {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            gap: 30px;
-        }
-
-        .stat-item {
-            text-align: center;
-            flex: 1;
-            min-width: 200px;
-        }
-
-        .stat-number {
-            font-size: 3rem;
-            font-weight: 700;
-            color: var(--primary-purple);
-            margin-bottom: 10px;
-        }
-
-        .stat-text {
-            font-size: 1.1rem;
-            color: var(--text-color);
+        /* Glass Cards */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: var(--glass-shadow);
+            color: var(--white);
         }
 
         /* Programs Section */
         .programs {
             padding: 80px 0;
-            background-color: var(--bg-color);
+            background: var(--gradient);
         }
 
         .section-title {
-            text-align: left;
+            text-align: center;
             margin-bottom: 50px;
+            color: var(--white);
         }
 
         .section-title h2 {
             font-size: 2.5rem;
-            color: var(--primary-purple);
             margin-bottom: 15px;
         }
 
         .section-title p {
             max-width: 700px;
-            color: var(--text-color);
+            margin: 0 auto;
         }
 
         .programs-grid {
@@ -256,20 +242,23 @@
         }
 
         .program-card {
-            background: var(--card-bg);
-            border-radius: 10px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            box-shadow: var(--glass-shadow);
             transition: all 0.3s ease;
+            color: var(--white);
         }
 
         .program-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
         }
 
         .program-icon {
-            background: var(--gradient);
+            background: rgba(255, 255, 255, 0.2);
             color: var(--white);
             font-size: 2rem;
             padding: 20px;
@@ -281,31 +270,31 @@
         }
 
         .program-content h3 {
-            color: var(--primary-purple);
             margin-bottom: 15px;
         }
 
         /* Story Section */
         .story {
             padding: 80px 0;
-            background-color: var(--section-bg);
+            background: var(--dark-gradient);
         }
 
         .story-content {
             max-width: 800px;
-            text-align: left;
+            margin: 0 auto;
+            text-align: center;
+            color: var(--white);
         }
 
         .story-content p {
             margin-bottom: 20px;
             font-size: 1.1rem;
-            color: var(--text-color);
         }
 
         /* Gallery Section */
         .gallery {
             padding: 80px 0;
-            background-color: var(--bg-color);
+            background: var(--gradient);
         }
 
         .gallery-grid {
@@ -316,10 +305,10 @@
 
         .gallery-item {
             height: 250px;
-            border-radius: 10px;
+            border-radius: 15px;
             overflow: hidden;
             position: relative;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--glass-shadow);
         }
 
         .gallery-item img {
@@ -336,16 +325,20 @@
         /* Form Styles */
         .form-section {
             padding: 80px 0;
-            background-color: var(--section-bg);
+            background: var(--dark-gradient);
         }
 
         .form-container {
             max-width: 700px;
             margin: 0 auto;
-            background: var(--card-bg);
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
             padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-radius: 15px;
+            box-shadow: var(--glass-shadow);
+            color: var(--white);
         }
 
         .form-group {
@@ -357,24 +350,27 @@
             display: block;
             margin-bottom: 8px;
             font-weight: 600;
-            color: var(--text-color);
         }
 
         .form-control {
             width: 100%;
             padding: 12px 15px;
-            border: 1px solid #ddd;
+            border: 1px solid var(--glass-border);
             border-radius: 5px;
             font-size: 1rem;
             transition: all 0.3s ease;
-            background-color: var(--bg-color);
-            color: var(--text-color);
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+        }
+
+        .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.7);
         }
 
         .form-control:focus {
-            border-color: var(--primary-purple);
+            border-color: var(--white);
             outline: none;
-            box-shadow: 0 0 0 3px rgba(106, 13, 173, 0.2);
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2);
         }
 
         textarea.form-control {
@@ -471,7 +467,7 @@
             background-size: cover;
             background-position: center;
             color: var(--white);
-            padding: 80px 0;
+            padding: 120px 0 80px;
             text-align: center;
         }
 
@@ -495,7 +491,10 @@
             height: 200px;
             border-radius: 50%;
             margin: 0 auto 20px;
-            background: var(--gradient);
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -511,50 +510,21 @@
         }
 
         .contact-card {
-            background: var(--card-bg);
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
             padding: 30px;
-            border-radius: 10px;
+            border-radius: 15px;
             text-align: center;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            box-shadow: var(--glass-shadow);
+            color: var(--white);
         }
 
         .contact-icon {
             font-size: 2.5rem;
-            color: var(--primary-purple);
+            color: var(--white);
             margin-bottom: 15px;
-        }
-
-        /* Image with purple overlay */
-        .image-container {
-            position: relative;
-            border-radius: 10px;
-            overflow: hidden;
-            margin-bottom: 30px;
-            height: 400px;
-        }
-
-        .image-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        .image-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(106, 13, 173, 0.7), rgba(138, 43, 226, 0.7));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.5rem;
-            font-weight: bold;
-            padding: 20px;
-            text-align: center;
         }
 
         /* Content Sections */
@@ -571,12 +541,13 @@
 
         .content-text {
             text-align: left;
+            color: var(--white);
         }
 
         .content-image {
-            border-radius: 10px;
+            border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--glass-shadow);
         }
 
         .content-image img {
@@ -597,7 +568,10 @@
                 top: 70px;
                 left: 0;
                 width: 100%;
-                background: var(--nav-bg);
+                background: var(--glass-bg);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                border-bottom: 1px solid var(--glass-border);
                 flex-direction: column;
                 padding: 20px 0;
                 box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
@@ -619,11 +593,6 @@
 
             .hero h1 {
                 font-size: 2.5rem;
-            }
-
-            .stats-container {
-                flex-direction: column;
-                gap: 40px;
             }
 
             .btn-outline {
@@ -673,28 +642,6 @@
                 <p>Empowering vulnerable individuals and communities through sustainable programs that create lasting change.</p>
                 <a href="#volunteer" class="btn">Become a Volunteer</a>
                 <a href="#programs" class="btn btn-outline">Our Programs</a>
-            </div>
-        </div>
-
-        <!-- Stats Section -->
-        <div class="stats">
-            <div class="container stats-container">
-                <div class="stat-item">
-                    <div class="stat-number">500+</div>
-                    <div class="stat-text">Lives Impacted</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">15+</div>
-                    <div class="stat-text">Years of Service</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">5</div>
-                    <div class="stat-text">Core Programs</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">3</div>
-                    <div class="stat-text">Countries</div>
-                </div>
             </div>
         </div>
 
@@ -750,7 +697,6 @@
                             <p>The story of HopeLift began in 2011 when our founder, during her NYSC service at Ilesha General Hospital, discovered her passion for extending care beyond clinical settings.</p>
                         </div>
                         <p>While serving in the hospital, she encountered patients who couldn't afford basic necessities. Guided by her nursing instinct, she began providing toiletries and essential supplies from her own resources.</p>
-                        <p>Her service expanded to orphanage homes, where she committed 10% of her income monthly to purchase medications for children. Her December salary was dedicated to providing clothing for widows and food packages for struggling families.</p>
                         <a href="#about" class="btn" style="margin-top: 20px;">Read Our Full Story</a>
                     </div>
                     <div class="content-image">
