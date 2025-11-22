@@ -3,28 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HopeLift Empowerment Foundation</title>
+    <title>HopeLift Foundation</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary-green: #1a8c5c;
-            --secondary-green: #2ecc71;
-            --light-green: #e8f5e9;
-            --dark-green: #0d5c3a;
+            --primary-purple: #6a0dad;
+            --secondary-purple: #8a2be2;
+            --accent-purple: #9370db;
+            --light-purple: #e6e6fa;
+            --dark-purple: #4b0082;
             --white: #ffffff;
             --light-gray: #f5f5f5;
             --dark-gray: #333333;
             --darker-gray: #1a1a1a;
-            --gradient: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
-            --dark-gradient: linear-gradient(135deg, #0d5c3a, #1a8c5c);
+            --gradient: linear-gradient(135deg, var(--primary-purple), var(--secondary-purple));
+            --dark-gradient: linear-gradient(135deg, #4b0082, #6a0dad);
             
             /* Light mode variables */
             --bg-color: var(--white);
             --text-color: var(--dark-gray);
             --card-bg: var(--light-gray);
-            --section-bg: var(--light-green);
-            --nav-bg: var(--white);
-            --footer-bg: var(--dark-green);
+            --section-bg: var(--light-purple);
+            --nav-bg: var(--gradient);
+            --footer-bg: var(--dark-purple);
             --footer-text: var(--white);
         }
 
@@ -33,8 +34,8 @@
             --text-color: var(--white);
             --card-bg: #2a2a2a;
             --section-bg: #1f1f1f;
-            --nav-bg: #1a1a1a;
-            --footer-bg: #0d3a26;
+            --nav-bg: var(--dark-gradient);
+            --footer-bg: #0d0d1a;
             --footer-text: var(--white);
         }
 
@@ -62,7 +63,7 @@
         /* Header Styles */
         header {
             background: var(--nav-bg);
-            color: var(--text-color);
+            color: var(--white);
             padding: 15px 0;
             position: sticky;
             top: 0;
@@ -84,26 +85,13 @@
 
         .logo-icon {
             font-size: 1.8rem;
-            color: var(--primary-green);
+            color: var(--white);
         }
 
         .logo-text {
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             font-weight: 700;
-            color: var(--text-color);
-        }
-
-        .logo-tagline {
-            font-size: 0.7rem;
-            opacity: 0.9;
-        }
-
-        .foundation-name {
-            flex-grow: 1;
-            text-align: center;
-            font-size: 1.6rem;
-            font-weight: 700;
-            color: var(--primary-green);
+            color: var(--white);
         }
 
         nav ul {
@@ -116,7 +104,7 @@
         }
 
         nav ul li a {
-            color: var(--text-color);
+            color: var(--white);
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s ease;
@@ -125,21 +113,20 @@
         }
 
         nav ul li a:hover, nav ul li a.active {
-            background-color: var(--primary-green);
-            color: var(--white);
+            background-color: rgba(255, 255, 255, 0.2);
         }
 
         .mobile-menu {
             display: none;
             font-size: 1.5rem;
             cursor: pointer;
-            color: var(--text-color);
+            color: var(--white);
         }
 
         .theme-toggle {
             background: none;
             border: none;
-            color: var(--text-color);
+            color: var(--white);
             font-size: 1.2rem;
             cursor: pointer;
             margin-left: 15px;
@@ -147,7 +134,7 @@
 
         /* Hero Section */
         .hero {
-            background: var(--dark-gradient);
+            background: var(--gradient);
             color: var(--white);
             padding: 120px 0;
             text-align: center;
@@ -187,7 +174,7 @@
         .btn {
             display: inline-block;
             background: var(--white);
-            color: var(--primary-green);
+            color: var(--primary-purple);
             padding: 12px 30px;
             border-radius: 50px;
             text-decoration: none;
@@ -232,7 +219,7 @@
         .stat-number {
             font-size: 3rem;
             font-weight: 700;
-            color: var(--primary-green);
+            color: var(--primary-purple);
             margin-bottom: 10px;
         }
 
@@ -248,19 +235,18 @@
         }
 
         .section-title {
-            text-align: center;
+            text-align: left;
             margin-bottom: 50px;
         }
 
         .section-title h2 {
             font-size: 2.5rem;
-            color: var(--primary-green);
+            color: var(--primary-purple);
             margin-bottom: 15px;
         }
 
         .section-title p {
             max-width: 700px;
-            margin: 0 auto;
             color: var(--text-color);
         }
 
@@ -296,7 +282,7 @@
         }
 
         .program-content h3 {
-            color: var(--primary-green);
+            color: var(--primary-purple);
             margin-bottom: 15px;
         }
 
@@ -308,8 +294,7 @@
 
         .story-content {
             max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
+            text-align: left;
         }
 
         .story-content p {
@@ -376,6 +361,7 @@
 
         .form-group {
             margin-bottom: 20px;
+            text-align: left;
         }
 
         .form-group label {
@@ -397,9 +383,9 @@
         }
 
         .form-control:focus {
-            border-color: var(--primary-green);
+            border-color: var(--primary-purple);
             outline: none;
-            box-shadow: 0 0 0 3px rgba(26, 140, 92, 0.2);
+            box-shadow: 0 0 0 3px rgba(106, 13, 173, 0.2);
         }
 
         textarea.form-control {
@@ -435,7 +421,7 @@
             bottom: 0;
             width: 50px;
             height: 3px;
-            background: var(--secondary-green);
+            background: var(--accent-purple);
         }
 
         .footer-column p, .footer-column a {
@@ -469,7 +455,7 @@
         }
 
         .social-links a:hover {
-            background: var(--secondary-green);
+            background: var(--accent-purple);
             transform: translateY(-5px);
         }
 
@@ -543,18 +529,44 @@
 
         .contact-icon {
             font-size: 2.5rem;
-            color: var(--primary-green);
+            color: var(--primary-purple);
             margin-bottom: 15px;
+        }
+
+        /* Image with purple overlay */
+        .image-container {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(106, 13, 173, 0.7), rgba(138, 43, 226, 0.7));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
         }
 
         /* Responsive Styles */
         @media (max-width: 768px) {
             .mobile-menu {
                 display: block;
-            }
-
-            .foundation-name {
-                font-size: 1.3rem;
             }
 
             nav ul {
@@ -606,16 +618,6 @@
             <div class="mobile-menu">
                 <i class="fas fa-bars"></i>
             </div>
-            <div class="foundation-name">HopeLift Empowerment Foundation</div>
-            <div class="logo-container">
-                <div class="logo-icon">
-                    <i class="fas fa-hands-helping"></i>
-                </div>
-                <div>
-                    <div class="logo-text">HopeLift</div>
-                    <div class="logo-tagline">Empowerment Foundation</div>
-                </div>
-            </div>
             <nav>
                 <ul>
                     <li><a href="#home" class="nav-link active">Home</a></li>
@@ -625,6 +627,12 @@
                     <li><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
             </nav>
+            <div class="logo-container">
+                <div class="logo-icon">
+                    <i class="fas fa-hands-helping"></i>
+                </div>
+                <div class="logo-text">HopeLift</div>
+            </div>
             <button class="theme-toggle" id="themeToggle">
                 <i class="fas fa-moon"></i>
             </button>
@@ -696,73 +704,15 @@
                             <p>Food packs, emotional support, health checks, and urgent welfare assistance for those who have lost their partners.</p>
                         </div>
                     </div>
-                    <div class="program-card">
-                        <div class="program-icon">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                        <div class="program-content">
-                            <h3>Financial Literacy & Mentorship</h3>
-                            <p>Teaching beneficiaries how to manage money, save, and grow their business for long-term financial stability.</p>
-                        </div>
-                    </div>
-                    <div class="program-card">
-                        <div class="program-icon">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <div class="program-content">
-                            <h3>Youth Empowerment Bootcamp</h3>
-                            <p>Short trainings for young people with business ideas but no funds, providing them with the tools to succeed.</p>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- Story Section -->
-        <div class="story">
-            <div class="container">
-                <div class="section-title">
-                    <h2>Our Story</h2>
-                </div>
-                <div class="story-content">
-                    <p>The story of HopeLift Empowerment Foundation began long before it had a name. In 2011, during her NYSC service year at Ilesha General Hospital, our founder discovered how deeply her passion for nursing could extend beyond the clinical space.</p>
-                    <p>While serving in the hospital, she encountered patients who could not afford even the most basic items required for their stay. Guided by her nursing instinct to protect, comfort, and uplift, she began providing toiletries and essential supplies from her own resources.</p>
-                    <p>Her service expanded to orphanage homes, where she committed 10% of her income every month to purchase medications for children. Her December salary was dedicated to providing clothing for widows and sharing food packages with families struggling to meet their daily needs.</p>
-                    <p>In 2021, she relocated to Canada, opening a new chapter in her journey. With a broader perspective on global needs and opportunities, she continued her mission by empowering widows and widowers with financial support to start small-scale businesses.</p>
-                    <p>By 2025, her passion expanded into research on sustainable solutions for families and individuals in Nigeria. She discovered the potential of POS businesses and other small-scale ventures, successfully setting up three individuals with stable sources of income.</p>
-                    <p>This revelation became the seed of the NGO — a platform built not just to provide temporary relief, but to create long-term empowerment, independence, and transformation.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Gallery Preview Section -->
-        <div class="gallery">
-            <div class="container">
-                <div class="section-title">
-                    <h2>Gallery</h2>
-                    <p>Moments of impact and transformation from our community outreach programs.</p>
-                </div>
-                <div class="gallery-grid">
-                    <div class="gallery-item">
-                        <div class="gallery-placeholder">
-                            <i class="fas fa-image"></i>
-                        </div>
-                    </div>
-                    <div class="gallery-item">
-                        <div class="gallery-placeholder">
-                            <i class="fas fa-image"></i>
-                        </div>
-                    </div>
-                    <div class="gallery-item">
-                        <div class="gallery-placeholder">
-                            <i class="fas fa-image"></i>
-                        </div>
-                    </div>
-                    <div class="gallery-item">
-                        <div class="gallery-placeholder">
-                            <i class="fas fa-image"></i>
-                        </div>
-                    </div>
+        <!-- Image Section -->
+        <div class="container">
+            <div class="image-container">
+                <div class="image-overlay">
+                    Empowering Communities Through Sustainable Programs
                 </div>
             </div>
         </div>
@@ -773,7 +723,7 @@
         <div class="page-hero">
             <div class="container">
                 <h1>About Us</h1>
-                <p>Learn more about our mission, vision, and the team behind HopeLift Empowerment Foundation</p>
+                <p>Learn more about our mission, vision, and the team behind HopeLift Foundation</p>
             </div>
         </div>
 
@@ -788,58 +738,22 @@
                     <p>To create a society where every vulnerable person has equal access to opportunities, support, and sustainable livelihood.</p>
                     
                     <h3>Mission Statement</h3>
-                    <ul style="text-align: left; max-width: 700px; margin: 20px auto;">
-                        <li>To empower widows, widowers, and the less privileged with financial support and skills.</li>
-                        <li>To provide start-up grants for small businesses.</li>
-                        <li>To offer emotional and practical assistance for long-term stability and dignity.</li>
-                        <li>To reach and transform 15 lives every year through empowerment.</li>
-                        <li>To offer personalized one-on-one counselling sessions to individuals seeking emotional or mental support.</li>
-                    </ul>
+                    <p>To empower widows, widowers, and the less privileged with financial support and skills, providing start-up grants for small businesses and offering emotional support for long-term stability and dignity.</p>
                     
                     <h3>Our Story</h3>
-                    <p>The story of this organization began long before it had a name. In 2011, during her NYSC service year at Ilesha General Hospital, our founder discovered how deeply her passion for nursing could extend beyond the clinical space. As a nurse, caring for people came naturally to her, and this compassion became the foundation for everything that followed.</p>
+                    <p>The story of HopeLift began in 2011 when our founder, during her NYSC service at Ilesha General Hospital, discovered her passion for extending care beyond clinical settings.</p>
                     
-                    <p>While serving in the hospital, she encountered patients who could not afford even the most basic items required for their stay. Guided by her nursing instinct to protect, comfort, and uplift, she began providing toiletries and essential supplies from her own resources. What started as simple acts of kindness soon evolved into a lifelong calling.</p>
+                    <p>While serving in the hospital, she encountered patients who couldn't afford basic necessities. Guided by her nursing instinct, she began providing toiletries and essential supplies from her own resources.</p>
                     
-                    <p>Her service expanded to orphanage homes, where she committed 10% of her income every month to purchase medications for children. Her December salary was dedicated to providing clothing for widows and sharing food packages with families struggling to meet their daily needs. Through these experiences, she learned that true care goes far beyond treatment — it is about restoring dignity, hope, and a sense of belonging.</p>
+                    <p>Her service expanded to orphanage homes, where she committed 10% of her income monthly to purchase medications for children. Her December salary was dedicated to providing clothing for widows and food packages for struggling families.</p>
                     
-                    <p>In 2021, she relocated to Canada, opening a new chapter in her journey. With a broader perspective on global needs and opportunities, she continued her mission by empowering widows and widowers with financial support to start small-scale businesses. She also extended her outreach to vulnerable individuals and patients who needed assistance, fueled by the same compassionate spirit that shaped her years in nursing.</p>
+                    <p>In 2021, she relocated to Canada, continuing her mission by empowering widows and widowers with financial support to start small-scale businesses.</p>
                     
-                    <p>By 2025, her passion expanded into research on sustainable solutions for families and individuals in Nigeria. She discovered the potential of POS businesses and other small-scale ventures, successfully setting up three individuals with stable sources of income. That success sparked a powerful realization:</p>
+                    <p>By 2025, her passion expanded into research on sustainable solutions, successfully setting up individuals with stable income sources through POS businesses and other ventures.</p>
                     
-                    <p><em>"Instead of giving people fish, I can help them learn to fish."</em></p>
+                    <p>This led to the powerful realization: "Instead of giving people fish, I can help them learn to fish."</p>
                     
-                    <p>This revelation became the seed of the NGO — a platform built not just to provide temporary relief, but to create long-term empowerment, independence, and transformation.</p>
-                    
-                    <p>Her story reflects the heart of a nurse and a mother, the vision of a leader, and the dedication of a woman committed to uplifting communities. From a compassionate young nurse in Ilesha to the founder of an organization touching lives across continents, she continues to lead with empathy, integrity, and an unshakeable belief that every person deserves a chance to thrive, irrespective of their past.</p>
-                </div>
-
-                <div class="section-title" style="margin-top: 60px;">
-                    <h2>Our Team</h2>
-                </div>
-                
-                <div class="team-grid">
-                    <div class="team-member">
-                        <div class="member-photo">
-                            <i class="fas fa-user"></i>
-                        </div>
-                        <h3>Founder</h3>
-                        <p>Compassionate nurse and visionary leader with over 15 years of experience in community service and empowerment initiatives.</p>
-                    </div>
-                    <div class="team-member">
-                        <div class="member-photo">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <h3>Volunteers</h3>
-                        <p>Dedicated team of volunteers across Nigeria and Canada who work tirelessly to bring our programs to life.</p>
-                    </div>
-                    <div class="team-member">
-                        <div class="member-photo">
-                            <i class="fas fa-hand-holding-heart"></i>
-                        </div>
-                        <h3>Partners</h3>
-                        <p>Collaborative organizations and individuals who support our mission and help expand our impact.</p>
-                    </div>
+                    <p>This became the seed of HopeLift Foundation — a platform built not just for temporary relief, but for long-term empowerment, independence, and transformation.</p>
                 </div>
             </div>
         </div>
@@ -885,30 +799,6 @@
                             <div>Team Photos</div>
                         </div>
                     </div>
-                    <div class="gallery-item">
-                        <div class="gallery-placeholder">
-                            <i class="fas fa-heart"></i>
-                            <div>Widows Support</div>
-                        </div>
-                    </div>
-                    <div class="gallery-item">
-                        <div class="gallery-placeholder">
-                            <i class="fas fa-chalkboard-teacher"></i>
-                            <div>Financial Literacy</div>
-                        </div>
-                    </div>
-                    <div class="gallery-item">
-                        <div class="gallery-placeholder">
-                            <i class="fas fa-seedling"></i>
-                            <div>Youth Empowerment</div>
-                        </div>
-                    </div>
-                    <div class="gallery-item">
-                        <div class="gallery-placeholder">
-                            <i class="fas fa-hands-helping"></i>
-                            <div>Volunteer Activities</div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -948,76 +838,12 @@
                         </div>
                         
                         <div class="form-group">
-                            <label for="location">Location</label>
-                            <input type="text" id="location" name="location" class="form-control" required>
-                        </div>
-                        
-                        <div class="form-group">
                             <label for="skills">Skills & Expertise</label>
                             <textarea id="skills" name="skills" class="form-control" placeholder="Tell us about your skills, experience, or how you'd like to contribute"></textarea>
                         </div>
                         
-                        <div class="form-group">
-                            <label for="availability">Availability</label>
-                            <select id="availability" name="availability" class="form-control" required>
-                                <option value="">Select your availability</option>
-                                <option value="weekdays">Weekdays</option>
-                                <option value="weekends">Weekends</option>
-                                <option value="both">Both weekdays and weekends</option>
-                                <option value="flexible">Flexible</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="interest">Area of Interest</label>
-                            <select id="interest" name="interest" class="form-control" required>
-                                <option value="">Select your area of interest</option>
-                                <option value="skills-training">Skills Training</option>
-                                <option value="business-grants">Business Grants</option>
-                                <option value="widows-support">Widows & Widowers Support</option>
-                                <option value="financial-literacy">Financial Literacy</option>
-                                <option value="youth-empowerment">Youth Empowerment</option>
-                                <option value="fundraising">Fundraising</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-                        
                         <button type="submit" class="btn" style="width: 100%;">Submit Application</button>
                     </form>
-                </div>
-                
-                <div class="section-title" style="margin-top: 60px;">
-                    <h2>Other Ways to Get Involved</h2>
-                </div>
-                
-                <div class="programs-grid">
-                    <div class="program-card">
-                        <div class="program-icon">
-                            <i class="fas fa-donate"></i>
-                        </div>
-                        <div class="program-content">
-                            <h3>Donate</h3>
-                            <p>Your financial contributions help us expand our programs and reach more people in need.</p>
-                        </div>
-                    </div>
-                    <div class="program-card">
-                        <div class="program-icon">
-                            <i class="fas fa-hands-helping"></i>
-                        </div>
-                        <div class="program-content">
-                            <h3>Partner With Us</h3>
-                            <p>Are you part of an organization that shares our vision? Let's collaborate to create greater impact.</p>
-                        </div>
-                    </div>
-                    <div class="program-card">
-                        <div class="program-icon">
-                            <i class="fas fa-bullhorn"></i>
-                        </div>
-                        <div class="program-content">
-                            <h3>Spread the Word</h3>
-                            <p>Help us raise awareness by sharing our mission with your network and community.</p>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -1100,7 +926,7 @@
             <div class="footer-content">
                 <div class="footer-column">
                     <h3>About Us</h3>
-                    <p>HopeLift Empowerment Foundation is dedicated to restoring dignity and rebuilding lives through sustainable empowerment programs.</p>
+                    <p>HopeLift Foundation is dedicated to restoring dignity and rebuilding lives through sustainable empowerment programs.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
