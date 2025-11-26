@@ -3,390 +3,303 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HopeLift Foundation</title>
+    <title>HopeLift Empowerment Foundation - Restoring Dignity. Rebuilding Lives.</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        /* CSS Variables for consistent theming */
         :root {
-            --primary-purple: #6a0dad;
-            --secondary-purple: #8a2be2;
-            --accent-purple: #9370db;
+            --deep-purple: #6a0dad;
+            --soft-lavender: #b19cd9;
             --light-purple: #e6e6fa;
-            --dark-purple: #4b0082;
             --white: #ffffff;
-            --light-gray: #f5f5f5;
-            --dark-gray: #333333;
-            --darker-gray: #1a1a1a;
-            --gradient: linear-gradient(135deg, var(--primary-purple), var(--secondary-purple));
-            --dark-gradient: linear-gradient(135deg, #4b0082, #6a0dad);
-            --glass-bg: rgba(255, 255, 255, 0.1);
-            --glass-border: rgba(255, 255, 255, 0.2);
-            --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-            
-            /* Light mode variables */
-            --bg-color: var(--white);
-            --text-color: var(--dark-gray);
-            --card-bg: var(--light-gray);
-            --section-bg: var(--light-purple);
-            --nav-bg: var(--gradient);
-            --footer-bg: var(--dark-purple);
-            --footer-text: var(--white);
+            --text-dark: #333333;
+            --text-light: #f8f8ff;
+            --shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            --border-radius: 12px;
+            --transition: all 0.3s ease;
         }
 
-        .dark-mode {
-            --bg-color: var(--darker-gray);
-            --text-color: var(--white);
-            --card-bg: #2a2a2a;
-            --section-bg: #1f1f1f;
-            --nav-bg: var(--dark-gradient);
-            --footer-bg: #0d0d1a;
-            --footer-text: var(--white);
-        }
-
+        /* Base Styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-            transition: background-color 0.3s, color 0.3s;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
+            background: linear-gradient(135deg, var(--deep-purple), var(--soft-lavender));
+            color: var(--text-dark);
             line-height: 1.6;
+            min-height: 100vh;
         }
 
         .container {
             width: 90%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 15px;
+            padding: 20px 0;
         }
 
-        /* Header Styles */
-        header {
-            background: var(--gradient);
-            color: var(--white);
-            padding: 15px 0;
-            position: sticky;
+        /* Glassmorphism Effect */
+        .glass {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: var(--shadow);
+            padding: 20px;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
             top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             z-index: 1000;
+            padding: 15px 0;
+            transition: var(--transition);
         }
 
-        .header-container {
+        .navbar.scrolled {
+            background: rgba(106, 13, 173, 0.9);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-        }
-
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .logo {
+            display: flex;
+            align-items: center;
+            color: var(--white);
+            font-weight: 700;
+            font-size: 1.5rem;
+            text-decoration: none;
+        }
+
+        .logo-placeholder {
             width: 50px;
             height: 50px;
-            background-color: var(--white);
+            background: rgba(255, 255, 255, 0.2);
             border-radius: 50%;
+            margin-right: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--primary-purple);
-            font-weight: bold;
             font-size: 1.2rem;
         }
 
-        .logo-text {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--white);
-        }
-
-        nav ul {
+        .nav-menu {
             display: flex;
             list-style: none;
         }
 
-        nav ul li {
-            margin-left: 20px;
+        .nav-item {
+            margin-left: 30px;
         }
 
-        nav ul li a {
+        .nav-link {
             color: var(--white);
             text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
+            font-weight: 500;
+            transition: var(--transition);
             padding: 5px 10px;
             border-radius: 4px;
         }
 
-        nav ul li a:hover, nav ul li a.active {
-            background-color: rgba(255, 255, 255, 0.2);
+        .nav-link:hover {
+            background: rgba(255, 255, 255, 0.2);
         }
 
-        .mobile-menu {
+        .hamburger {
             display: none;
-            font-size: 1.5rem;
             cursor: pointer;
             color: var(--white);
+            font-size: 1.5rem;
         }
 
-        .theme-toggle {
-            background: none;
-            border: none;
-            color: var(--white);
-            font-size: 1.2rem;
-            cursor: pointer;
-            margin-left: 15px;
+        /* Page Sections */
+        .page {
+            display: none;
+            padding-top: 100px;
+            min-height: 100vh;
+        }
+
+        .page.active {
+            display: block;
         }
 
         /* Hero Section */
         .hero {
-            background: var(--gradient);
-            color: var(--white);
-            padding: 100px 0;
-            min-height: 80vh;
+            height: 80vh;
             display: flex;
             align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 20px;
         }
 
         .hero-content {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 40px;
-        }
-
-        .hero-text {
-            flex: 1;
-        }
-
-        .hero-image {
-            flex: 1;
-            text-align: center;
-        }
-
-        .hero-image img {
-            max-width: 100%;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            max-width: 800px;
         }
 
         .hero h1 {
             font-size: 3.5rem;
+            color: var(--white);
             margin-bottom: 20px;
-            line-height: 1.2;
-        }
-
-        .hero h1 span {
-            display: block;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
         }
 
         .hero p {
             font-size: 1.2rem;
+            color: var(--light-purple);
             margin-bottom: 30px;
-            max-width: 600px;
         }
 
+        /* Buttons */
         .btn {
             display: inline-block;
-            background: var(--white);
-            color: var(--primary-purple);
             padding: 12px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            transition: all 0.3s ease;
+            background: var(--white);
+            color: var(--deep-purple);
             border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
             cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
 
         .btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
         }
 
-        .btn-outline {
-            background: transparent;
-            border: 2px solid var(--white);
-            color: var(--white);
-            margin-left: 15px;
-        }
-
-        /* Glass Cards */
-        .glass-card {
-            background: var(--glass-bg);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid var(--glass-border);
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: var(--glass-shadow);
+        .btn-purple {
+            background: linear-gradient(135deg, var(--deep-purple), var(--soft-lavender));
             color: var(--white);
         }
 
-        /* Programs Section */
-        .programs {
-            padding: 80px 0;
-            background: var(--gradient);
+        /* Sections */
+        .section {
+            margin: 80px 0;
         }
 
         .section-title {
             text-align: center;
             margin-bottom: 50px;
             color: var(--white);
-        }
-
-        .section-title h2 {
             font-size: 2.5rem;
-            margin-bottom: 15px;
         }
 
-        .section-title p {
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .programs-grid {
+        /* Cards */
+        .card-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
         }
 
-        .program-card {
-            background: var(--glass-bg);
+        .card {
+            background: rgba(255, 255, 255, 0.15);
             backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid var(--glass-border);
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: var(--glass-shadow);
-            transition: all 0.3s ease;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
             color: var(--white);
-        }
-
-        .program-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .program-icon {
-            background: rgba(255, 255, 255, 0.2);
-            color: var(--white);
-            font-size: 2rem;
-            padding: 20px;
-            text-align: center;
-        }
-
-        .program-content {
-            padding: 25px;
-        }
-
-        .program-content h3 {
-            margin-bottom: 15px;
-        }
-
-        /* Story Section */
-        .story {
-            padding: 80px 0;
-            background: var(--dark-gradient);
-        }
-
-        .story-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-            color: var(--white);
-        }
-
-        .story-content p {
             margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .card h3 {
+            color: var(--white);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .card p {
+            color: var(--light-purple);
+        }
+
+        /* Stats */
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 50px 0;
+        }
+
+        .stat-item {
+            text-align: center;
+            margin: 20px;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--white);
+            display: block;
+        }
+
+        .stat-text {
+            color: var(--light-purple);
             font-size: 1.1rem;
         }
 
-        /* Gallery Section */
-        .gallery {
-            padding: 80px 0;
-            background: var(--gradient);
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 20px;
-        }
-
-        .gallery-item {
-            height: 250px;
-            border-radius: 15px;
-            overflow: hidden;
-            position: relative;
-            box-shadow: var(--glass-shadow);
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.1);
-        }
-
-        /* Form Styles */
-        .form-section {
-            padding: 80px 0;
-            background: var(--dark-gradient);
-        }
-
+        /* Forms */
         .form-container {
-            max-width: 700px;
+            max-width: 600px;
             margin: 0 auto;
-            background: var(--glass-bg);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid var(--glass-border);
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: var(--glass-shadow);
-            color: var(--white);
         }
 
         .form-group {
             margin-bottom: 20px;
-            text-align: left;
         }
 
-        .form-group label {
+        .form-label {
             display: block;
             margin-bottom: 8px;
-            font-weight: 600;
+            color: var(--white);
+            font-weight: 500;
         }
 
         .form-control {
             width: 100%;
             padding: 12px 15px;
-            border: 1px solid var(--glass-border);
-            border-radius: 5px;
-            font-size: 1rem;
-            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: var(--border-radius);
             background: rgba(255, 255, 255, 0.1);
             color: var(--white);
-        }
-
-        .form-control::placeholder {
-            color: rgba(255, 255, 255, 0.7);
+            font-size: 1rem;
+            transition: var(--transition);
         }
 
         .form-control:focus {
-            border-color: var(--white);
             outline: none;
-            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2);
+            border-color: var(--white);
+            background: rgba(255, 255, 255, 0.2);
         }
 
         textarea.form-control {
@@ -394,11 +307,79 @@
             resize: vertical;
         }
 
+        /* Team */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .team-card {
+            text-align: center;
+        }
+
+        .team-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 20px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .team-name {
+            color: var(--white);
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+
+        .team-role {
+            color: var(--light-purple);
+            margin-bottom: 15px;
+        }
+
+        /* Testimonials */
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial {
+            padding: 25px;
+            position: relative;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: var(--light-purple);
+        }
+
+        .testimonial-author {
+            color: var(--white);
+            font-weight: 600;
+        }
+
+        /* Program Cards */
+        .program-card {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .program-icon {
+            font-size: 2rem;
+            color: var(--white);
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
         /* Footer */
-        footer {
-            background: var(--footer-bg);
-            color: var(--footer-text);
-            padding: 60px 0 20px;
+        .footer {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 50px 0 20px;
+            margin-top: 50px;
         }
 
         .footer-content {
@@ -409,42 +390,36 @@
         }
 
         .footer-column h3 {
-            font-size: 1.3rem;
-            margin-bottom: 20px;
-            position: relative;
-            padding-bottom: 10px;
-        }
-
-        .footer-column h3::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 50px;
-            height: 3px;
-            background: var(--accent-purple);
-        }
-
-        .footer-column p, .footer-column a {
-            color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 10px;
-            display: block;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .footer-column a:hover {
             color: var(--white);
-            padding-left: 5px;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
         }
 
-        .social-links {
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: var(--light-purple);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+        }
+
+        .social-icons {
             display: flex;
             gap: 15px;
             margin-top: 20px;
         }
 
-        .social-links a {
+        .social-icon {
             display: flex;
             align-items: center;
             justify-content: center;
@@ -452,714 +427,595 @@
             height: 40px;
             background: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
-            transition: all 0.3s ease;
+            color: var(--white);
+            text-decoration: none;
+            transition: var(--transition);
         }
 
-        .social-links a:hover {
-            background: var(--accent-purple);
-            transform: translateY(-5px);
+        .social-icon:hover {
+            background: var(--white);
+            color: var(--deep-purple);
+            transform: translateY(-3px);
         }
 
         .copyright {
             text-align: center;
+            color: var(--light-purple);
             padding-top: 20px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 0.9rem;
         }
 
-        /* Page Sections */
-        .page-section {
-            display: none;
-            padding: 80px 0;
-        }
-
-        .page-section.active {
-            display: block;
-        }
-
-        .page-hero {
-            background: var(--gradient);
-            color: var(--white);
-            padding: 120px 0 80px;
-            text-align: center;
-        }
-
-        .about-content, .contact-content {
-            padding: 80px 0;
-        }
-
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .team-member {
-            text-align: center;
-        }
-
-        .member-photo {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            margin: 0 auto 20px;
-            background: var(--glass-bg);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid var(--glass-border);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            font-size: 4rem;
-        }
-
-        .contact-info {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .contact-card {
-            background: var(--glass-bg);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid var(--glass-border);
-            padding: 30px;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: var(--glass-shadow);
-            color: var(--white);
-        }
-
-        .contact-icon {
-            font-size: 2.5rem;
-            color: var(--white);
-            margin-bottom: 15px;
-        }
-
-        /* Content Sections */
-        .content-section {
-            padding: 60px 0;
-        }
-
-        .content-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            align-items: center;
-        }
-
-        .content-text {
-            text-align: left;
-            color: var(--white);
-        }
-
-        .content-image {
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: var(--glass-shadow);
-        }
-
-        .content-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        /* Responsive Styles */
+        /* Responsive Design */
         @media (max-width: 768px) {
-            .mobile-menu {
+            .hamburger {
                 display: block;
             }
 
-            nav ul {
-                display: none;
-                position: absolute;
+            .nav-menu {
+                position: fixed;
                 top: 70px;
-                left: 0;
-                width: 100%;
-                background: var(--gradient);
+                right: -100%;
                 flex-direction: column;
-                padding: 20px 0;
-                box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+                background: rgba(106, 13, 173, 0.95);
+                backdrop-filter: blur(10px);
+                width: 80%;
+                height: calc(100vh - 70px);
+                transition: var(--transition);
+                padding: 20px;
             }
 
-            nav ul.show {
-                display: flex;
+            .nav-menu.active {
+                right: 0;
             }
 
-            nav ul li {
-                margin: 0;
-                text-align: center;
-            }
-
-            nav ul li a {
-                display: block;
-                padding: 15px;
+            .nav-item {
+                margin: 15px 0;
             }
 
             .hero h1 {
                 font-size: 2.5rem;
             }
 
-            .hero-content {
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .stats {
                 flex-direction: column;
-            }
-
-            .btn-outline {
-                margin-left: 0;
-                margin-top: 15px;
-            }
-
-            .content-grid {
-                grid-template-columns: 1fr;
+                align-items: center;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container header-container">
-            <div class="mobile-menu">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo" data-page="home">
+                <div class="logo-placeholder">
+                    <!-- Space for your logo -->
+                    <i class="fas fa-hands-helping"></i>
+                </div>
+                HopeLift Foundation
+            </a>
+            <div class="hamburger" id="hamburger">
                 <i class="fas fa-bars"></i>
             </div>
-            <div class="logo-container">
-                <div class="logo">HL</div>
-                <div class="logo-text">HopeLift</div>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="#home" class="nav-link active">Home</a></li>
-                    <li><a href="#about" class="nav-link">About</a></li>
-                    <li><a href="#programs" class="nav-link">Programs</a></li>
-                    <li><a href="#gallery" class="nav-link">Gallery</a></li>
-                    <li><a href="#volunteer" class="nav-link">Volunteer</a></li>
-                    <li><a href="#contact" class="nav-link">Contact</a></li>
-                </ul>
-            </nav>
-            <button class="theme-toggle" id="themeToggle">
-                <i class="fas fa-moon"></i>
-            </button>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item"><a href="#" class="nav-link" data-page="home">Home</a></li>
+                <li class="nav-item"><a href="#" class="nav-link" data-page="about">About</a></li>
+                <li class="nav-item"><a href="#" class="nav-link" data-page="volunteers">Volunteers</a></li>
+                <li class="nav-item"><a href="#" class="nav-link" data-page="apply">Apply</a></li>
+                <li class="nav-item"><a href="#" class="nav-link" data-page="contact">Contact</a></li>
+            </ul>
         </div>
-    </header>
+    </nav>
 
-    <!-- Home Section -->
-    <section id="home" class="page-section active">
-        <!-- Hero Section -->
+    <!-- Home Page -->
+    <section id="home" class="page active">
         <div class="hero">
-            <div class="container hero-content">
-                <div class="hero-text">
-                    <h1>
-                        <span>Restoring</span>
-                        <span>Dignity.</span>
-                        <span>Rebuilding</span>
-                        <span>Lives.</span>
-                    </h1>
-                    <p>Empowering vulnerable individuals and communities through sustainable programs that create lasting change.</p>
-                    <div class="hero-buttons">
-                        <a href="#volunteer" class="btn">Become a Volunteer</a>
-                        <a href="#programs" class="btn btn-outline">Our Programs</a>
-                    </div>
-                </div>
-                <div class="hero-image">
-                    <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1474&q=80" alt="Community support">
-                </div>
+            <div class="hero-content glass">
+                <h1>Restoring Dignity. Rebuilding Lives.</h1>
+                <p>HopeLift Empowerment Foundation is dedicated to creating sustainable change by empowering vulnerable individuals and communities through financial support, skills training, and emotional assistance.</p>
+                <a href="#" class="btn btn-purple" data-page="apply">Get Involved</a>
             </div>
         </div>
 
-        <!-- Programs Preview Section -->
-        <div class="programs">
-            <div class="container">
-                <div class="section-title">
-                    <h2>Our Programs</h2>
-                    <p>We offer comprehensive empowerment programs designed to create sustainable change in the lives of vulnerable individuals and communities.</p>
-                </div>
-                <div class="programs-grid">
-                    <div class="program-card">
-                        <div class="program-icon">
-                            <i class="fas fa-business-time"></i>
+        <div class="container">
+            <!-- Mission Section -->
+            <div class="section">
+                <h2 class="section-title">Our Mission & Vision</h2>
+                <div class="card-grid">
+                    <div class="card">
+                        <div class="card-icon">
+                            <i class="fas fa-bullseye"></i>
                         </div>
-                        <div class="program-content">
-                            <h3>Start-Up Business Grants</h3>
-                            <p>Grants for petty trading, small businesses, and local income-generating ventures to help beneficiaries become self-sufficient.</p>
-                        </div>
+                        <h3>Our Vision</h3>
+                        <p>To create a society where every vulnerable person has equal access to opportunities, support, and sustainable livelihood regardless of their background or circumstances.</p>
                     </div>
-                    <div class="program-card">
-                        <div class="program-icon">
-                            <i class="fas fa-graduation-cap"></i>
+                    <div class="card">
+                        <div class="card-icon">
+                            <i class="fas fa-hand-holding-heart"></i>
                         </div>
-                        <div class="program-content">
-                            <h3>Skills Training Program</h3>
-                            <p>Training in hairdressing, tailoring, baking, catering, farming, and POS operations to equip individuals with marketable skills.</p>
-                        </div>
+                        <h3>Our Mission</h3>
+                        <p>To empower widows, widowers, and the less privileged with financial support, skills training, and emotional assistance for long-term stability and restored dignity.</p>
                     </div>
-                    <div class="program-card">
-                        <div class="program-icon">
-                            <i class="fas fa-heart"></i>
+                    <div class="card">
+                        <div class="card-icon">
+                            <i class="fas fa-star"></i>
                         </div>
-                        <div class="program-content">
-                            <h3>Widows & Widowers Support</h3>
-                            <p>Food packs, emotional support, health checks, and urgent welfare assistance for those who have lost their partners.</p>
-                        </div>
-                    </div>
-                </div>
-                <div style="text-align: center; margin-top: 40px;">
-                    <a href="#programs" class="btn">View All Programs</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Story Preview Section -->
-        <div class="story">
-            <div class="container">
-                <div class="content-grid">
-                    <div class="content-text">
-                        <div class="section-title">
-                            <h2>Our Story</h2>
-                            <p>The story of HopeLift began in 2011 when our founder, during her NYSC service at Ilesha General Hospital, discovered her passion for extending care beyond clinical settings.</p>
-                        </div>
-                        <p>While serving in the hospital, she encountered patients who couldn't afford basic necessities. Guided by her nursing instinct, she began providing toiletries and essential supplies from her own resources.</p>
-                        <a href="#about" class="btn" style="margin-top: 20px;">Read Our Full Story</a>
-                    </div>
-                    <div class="content-image">
-                        <img src="https://images.unsplash.com/photo-1527525443983-6e60c75fff46?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=685&q=80" alt="Community support">
+                        <h3>Our Values</h3>
+                        <p>Compassion, Integrity, Empowerment, Sustainability, and Community. We believe in creating lasting change through personalized support and sustainable solutions.</p>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Gallery Preview Section -->
-        <div class="gallery">
-            <div class="container">
-                <div class="section-title">
-                    <h2>Gallery</h2>
-                    <p>Visual stories of impact, transformation, and hope from our community programs.</p>
-                </div>
-                <div class="gallery-grid">
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Skills training">
+            <!-- Impact Stats -->
+            <div class="section">
+                <h2 class="section-title">Our Impact</h2>
+                <div class="stats">
+                    <div class="stat-item">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-text">Lives Transformed</span>
                     </div>
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1474&q=80" alt="Community outreach">
+                    <div class="stat-item">
+                        <span class="stat-number">15</span>
+                        <span class="stat-text">Businesses Started</span>
                     </div>
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Volunteer work">
+                    <div class="stat-item">
+                        <span class="stat-number">25+</span>
+                        <span class="stat-text">Widows Supported</span>
                     </div>
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Education program">
-                    </div>
-                </div>
-                <div style="text-align: center; margin-top: 40px;">
-                    <a href="#gallery" class="btn">View Full Gallery</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="page-section">
-        <div class="page-hero">
-            <div class="container">
-                <h1>About Us</h1>
-                <p>Learn more about our mission, vision, and the team behind HopeLift Foundation</p>
-            </div>
-        </div>
-
-        <div class="about-content">
-            <div class="container">
-                <div class="content-section">
-                    <div class="content-grid">
-                        <div class="content-image">
-                            <img src="https://images.unsplash.com/photo-1527525443983-6e60c75fff46?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=685&q=80" alt="Community support">
-                        </div>
-                        <div class="content-text">
-                            <h2>Our Vision & Mission</h2>
-                            <h3>Vision Statement</h3>
-                            <p>To create a society where every vulnerable person has equal access to opportunities, support, and sustainable livelihood.</p>
-                            
-                            <h3>Mission Statement</h3>
-                            <p>To empower widows, widowers, and the less privileged with financial support and skills, providing start-up grants for small businesses and offering emotional support for long-term stability and dignity.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="content-section">
-                    <div class="content-grid">
-                        <div class="content-text">
-                            <h2>Our Story</h2>
-                            <p>The story of HopeLift began in 2011 when our founder, during her NYSC service at Ilesha General Hospital, discovered her passion for extending care beyond clinical settings.</p>
-                            
-                            <p>While serving in the hospital, she encountered patients who couldn't afford basic necessities. Guided by her nursing instinct, she began providing toiletries and essential supplies from her own resources.</p>
-                            
-                            <p>Her service expanded to orphanage homes, where she committed 10% of her income monthly to purchase medications for children. Her December salary was dedicated to providing clothing for widows and food packages for struggling families.</p>
-                            
-                            <p>In 2021, she relocated to Canada, continuing her mission by empowering widows and widowers with financial support to start small-scale businesses.</p>
-                        </div>
-                        <div class="content-image">
-                            <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1474&q=80" alt="Community outreach">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="content-section">
-                    <div class="content-grid">
-                        <div class="content-image">
-                            <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Volunteer work">
-                        </div>
-                        <div class="content-text">
-                            <h2>Our Impact</h2>
-                            <p>By 2025, her passion expanded into research on sustainable solutions, successfully setting up individuals with stable income sources through POS businesses and other ventures.</p>
-                            
-                            <p>This led to the powerful realization: "Instead of giving people fish, I can help them learn to fish."</p>
-                            
-                            <p>This became the seed of HopeLift Foundation — a platform built not just for temporary relief, but for long-term empowerment, independence, and transformation.</p>
-                            
-                            <p>Today, HopeLift operates in Nigeria and Canada, with plans to expand to other regions where vulnerable communities need our support.</p>
-                        </div>
+                    <div class="stat-item">
+                        <span class="stat-number">3</span>
+                        <span class="stat-text">Countries Reached</span>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Programs Section -->
-    <section id="programs" class="page-section">
-        <div class="page-hero">
-            <div class="container">
-                <h1>Our Programs</h1>
-                <p>Comprehensive empowerment initiatives designed to create sustainable change</p>
-            </div>
-        </div>
-
-        <div class="programs">
-            <div class="container">
-                <div class="programs-grid">
-                    <div class="program-card">
-                        <div class="program-icon">
-                            <i class="fas fa-business-time"></i>
-                        </div>
-                        <div class="program-content">
-                            <h3>Start-Up Business Grants</h3>
-                            <p>We provide grants for petty trading, small businesses, and local income-generating ventures to help beneficiaries become self-sufficient. Our approach includes:</p>
-                            <ul>
-                                <li>Micro-grants for small-scale businesses</li>
-                                <li>Business planning assistance</li>
-                                <li>Market linkage support</li>
-                                <li>Ongoing mentorship</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="program-card">
+            <!-- Programs Preview -->
+            <div class="section">
+                <h2 class="section-title">Our Programs</h2>
+                <div class="card-grid">
+                    <div class="card program-card">
                         <div class="program-icon">
                             <i class="fas fa-graduation-cap"></i>
                         </div>
-                        <div class="program-content">
-                            <h3>Skills Training Program</h3>
-                            <p>We offer training in various marketable skills to equip individuals for sustainable livelihoods:</p>
-                            <ul>
-                                <li>Hairdressing and beauty therapy</li>
-                                <li>Tailoring and fashion design</li>
-                                <li>Baking and catering</li>
-                                <li>Agricultural farming techniques</li>
-                                <li>POS operations and small business management</li>
-                            </ul>
-                        </div>
+                        <h3>Skills Training</h3>
+                        <p>Comprehensive training in hairdressing, tailoring, baking, catering, farming, and POS operations to build sustainable livelihoods.</p>
                     </div>
-                    <div class="program-card">
+                    <div class="card program-card">
                         <div class="program-icon">
-                            <i class="fas fa-heart"></i>
+                            <i class="fas fa-hand-holding-usd"></i>
                         </div>
-                        <div class="program-content">
-                            <h3>Widows & Widowers Support</h3>
-                            <p>Our comprehensive support program for those who have lost their partners includes:</p>
-                            <ul>
-                                <li>Monthly food packs and essential supplies</li>
-                                <li>Emotional support and counseling</li>
-                                <li>Regular health checks and medical assistance</li>
-                                <li>Emergency welfare support</li>
-                                <li>Community integration activities</li>
-                            </ul>
-                        </div>
+                        <h3>Start-Up Grants</h3>
+                        <p>Financial support for petty trading, small businesses, and local income-generating ventures with mentorship for success.</p>
                     </div>
-                    <div class="program-card">
-                        <div class="program-icon">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                        <div class="program-content">
-                            <h3>Financial Literacy & Mentorship</h3>
-                            <p>We teach beneficiaries how to manage money effectively and grow their businesses:</p>
-                            <ul>
-                                <li>Basic financial management skills</li>
-                                <li>Savings and investment strategies</li>
-                                <li>Credit management education</li>
-                                <li>One-on-one business mentorship</li>
-                                <li>Access to financial services</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="program-card">
+                    <div class="card program-card">
                         <div class="program-icon">
                             <i class="fas fa-users"></i>
                         </div>
-                        <div class="program-content">
-                            <h3>Youth Empowerment Bootcamp</h3>
-                            <p>Short intensive trainings for young people with business ideas but limited resources:</p>
-                            <ul>
-                                <li>Entrepreneurship fundamentals</li>
-                                <li>Digital skills training</li>
-                                <li>Leadership development</li>
-                                <li>Pitch competitions with seed funding</li>
-                                <li>Post-training support and networking</li>
-                            </ul>
-                        </div>
+                        <h3>Widows Support</h3>
+                        <p>Food packs, emotional support, health checks, and urgent welfare assistance for widows and widowers in need.</p>
                     </div>
-                    <div class="program-card">
+                </div>
+                <div style="text-align: center; margin-top: 30px;">
+                    <a href="#" class="btn" data-page="about">Learn More About Our Programs</a>
+                </div>
+            </div>
+
+            <!-- Testimonials -->
+            <div class="section">
+                <h2 class="section-title">Stories of Hope</h2>
+                <div class="testimonial-grid">
+                    <div class="card testimonial">
+                        <p class="testimonial-text">"The business grant from HopeLift Foundation transformed my life. I was able to start a small provisions store that now supports my family. Thank you for believing in me."</p>
+                        <p class="testimonial-author">- Grace O., Small Business Owner</p>
+                    </div>
+                    <div class="card testimonial">
+                        <p class="testimonial-text">"After losing my husband, I struggled to provide for my children. The emotional support and food packages from HopeLift gave me hope during my darkest days."</p>
+                        <p class="testimonial-author">- Amina T., Widow & Beneficiary</p>
+                    </div>
+                    <div class="card testimonial">
+                        <p class="testimonial-text">"The skills training program taught me tailoring, and now I have my own small business. I can finally provide for my family with dignity."</p>
+                        <p class="testimonial-author">- Chinedu M., Skills Training Graduate</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Page -->
+    <section id="about" class="page">
+        <div class="container">
+            <div class="section">
+                <h2 class="section-title">Our Story</h2>
+                <div class="glass" style="padding: 40px; margin-bottom: 50px;">
+                    <h3 style="color: var(--white); margin-bottom: 20px; text-align: center;">The Birth of HopeLift Empowerment Foundation</h3>
+                    <p style="color: var(--light-purple); margin-bottom: 20px; line-height: 1.8;">
+                        The story of HopeLift Empowerment Foundation began long before it had a name. In 2011, during her NYSC service year at Ilesha General Hospital, our founder discovered how deeply her passion for nursing could extend beyond the clinical space. As a nurse, caring for people came naturally to her, and this compassion became the foundation for everything that followed.
+                    </p>
+                    <p style="color: var(--light-purple); margin-bottom: 20px; line-height: 1.8;">
+                        While serving in the hospital, she encountered patients who could not afford even the most basic items required for their stay. Guided by her nursing instinct to protect, comfort, and uplift, she began providing toiletries and essential supplies from her own resources. What started as simple acts of kindness soon evolved into a lifelong calling.
+                    </p>
+                    <p style="color: var(--light-purple); margin-bottom: 20px; line-height: 1.8;">
+                        Her service expanded to orphanage homes, where she committed 10% of her income every month to purchase medications for children. Her December salary was dedicated to providing clothing for widows and sharing food packages with families struggling to meet their daily needs. Through these experiences, she learned that true care goes far beyond treatment — it is about restoring dignity, hope, and a sense of belonging.
+                    </p>
+                    <p style="color: var(--light-purple); margin-bottom: 20px; line-height: 1.8;">
+                        In 2021, she relocated to Canada, opening a new chapter in her journey. With a broader perspective on global needs and opportunities, she continued her mission by empowering widows and widowers with financial support to start small-scale businesses. She also extended her outreach to vulnerable individuals and patients who needed assistance, fueled by the same compassionate spirit that shaped her years in nursing.
+                    </p>
+                    <p style="color: var(--light-purple); margin-bottom: 20px; line-height: 1.8;">
+                        By 2025, her passion expanded into research on sustainable solutions for families and individuals in Nigeria. She discovered the potential of POS businesses and other small-scale ventures, successfully setting up three individuals with stable sources of income. That success sparked a powerful realization:
+                    </p>
+                    <blockquote style="border-left: 4px solid var(--soft-lavender); padding-left: 20px; margin: 30px 0; font-style: italic; color: var(--white);">
+                        "Instead of giving people fish, I can help them learn to fish."
+                    </blockquote>
+                    <p style="color: var(--light-purple); line-height: 1.8;">
+                        This revelation became the seed of HopeLift Empowerment Foundation — a platform built not just to provide temporary relief, but to create long-term empowerment, independence, and transformation. Her story reflects the heart of a nurse and a mother, the vision of a leader, and the dedication of a woman committed to uplifting communities. From a compassionate young nurse in Ilesha to the founder of an organization touching lives across continents, she continues to lead with empathy, integrity, and an unshakeable belief that every person deserves a chance to thrive, irrespective of their past.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Programs Details -->
+            <div class="section">
+                <h2 class="section-title">Our Programs</h2>
+                <div class="card-grid">
+                    <div class="card program-card">
                         <div class="program-icon">
-                            <i class="fas fa-hand-holding-medical"></i>
+                            <i class="fas fa-hand-holding-usd"></i>
                         </div>
-                        <div class="program-content">
-                            <h3>Health & Wellness Program</h3>
-                            <p>Supporting the overall wellbeing of our beneficiaries through:</p>
-                            <ul>
-                                <li>Regular health screening camps</li>
-                                <li>Mental health support services</li>
-                                <li>Health education workshops</li>
-                                <li>Access to affordable healthcare</li>
-                                <li>Nutritional support programs</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Gallery Section -->
-    <section id="gallery" class="page-section">
-        <div class="page-hero">
-            <div class="container">
-                <h1>Gallery</h1>
-                <p>Visual stories of impact, transformation, and hope from our community programs</p>
-            </div>
-        </div>
-
-        <div class="gallery">
-            <div class="container">
-                <div class="section-title">
-                    <h2>Our Work in Action</h2>
-                    <p>These images capture the moments of transformation and hope that our programs create in communities across Nigeria and Canada.</p>
-                </div>
-                <div class="gallery-grid">
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Skills training">
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1474&q=80" alt="Community outreach">
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Volunteer work">
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Education program">
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Business training">
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1551836026-d5cbc961c910?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Community meeting">
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1220&q=80" alt="Wellness program">
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=688&q=80" alt="Success celebration">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Volunteer Section -->
-    <section id="volunteer" class="page-section">
-        <div class="page-hero">
-            <div class="container">
-                <h1>Join Our Mission</h1>
-                <p>Become a volunteer and help us restore dignity and rebuild lives in vulnerable communities</p>
-            </div>
-        </div>
-
-        <div class="form-section">
-            <div class="container">
-                <div class="content-grid">
-                    <div class="content-text">
-                        <div class="section-title">
-                            <h2>Volunteer With Us</h2>
-                            <p>Our volunteers are the heart of HopeLift Foundation. Join our dedicated team and make a tangible difference in the lives of vulnerable individuals and communities.</p>
-                        </div>
-                        <p>As a HopeLift volunteer, you'll have the opportunity to:</p>
-                        <ul>
-                            <li>Participate in community outreach programs</li>
-                            <li>Mentor beneficiaries in our skills training programs</li>
-                            <li>Assist with administrative and organizational tasks</li>
-                            <li>Help with fundraising and awareness campaigns</li>
-                            <li>Share your professional expertise in areas like business, health, or education</li>
+                        <h3>Start-Up Business Grants</h3>
+                        <p>We provide financial grants for petty trading, small businesses, and local income-generating ventures. Our grants range from small seed funding for market stalls to larger investments for established small businesses looking to expand. Each grant comes with mentorship and business guidance to ensure sustainability.</p>
+                        <ul style="color: var(--light-purple); margin-top: 15px; padding-left: 20px;">
+                            <li>Micro-grants for petty trading (₦20,000 - ₦50,000)</li>
+                            <li>Small business grants (₦50,000 - ₦200,000)</li>
+                            <li>Business expansion grants for existing businesses</li>
+                            <li>Mentorship and business planning support</li>
                         </ul>
-                        <p>We welcome volunteers from all backgrounds and skill levels. Whether you can commit a few hours a week or participate in specific projects, your contribution matters.</p>
                     </div>
-                    <div class="content-image">
-                        <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1220&q=80" alt="Volunteers at work">
+                    <div class="card program-card">
+                        <div class="program-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3>Skills Training Program</h3>
+                        <p>Our comprehensive skills training programs equip beneficiaries with practical, marketable skills for sustainable livelihoods. We partner with local experts and institutions to provide quality training in various fields.</p>
+                        <ul style="color: var(--light-purple); margin-top: 15px; padding-left: 20px;">
+                            <li>Hairdressing and beauty therapy (3-month program)</li>
+                            <li>Tailoring and fashion design (4-month program)</li>
+                            <li>Baking and catering skills (2-month intensive)</li>
+                            <li>POS operation and small business management</li>
+                            <li>Basic farming techniques for sustainable agriculture</li>
+                        </ul>
+                    </div>
+                    <div class="card program-card">
+                        <div class="program-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Widows & Widowers Support</h3>
+                        <p>We provide holistic support for widows and widowers facing economic and emotional challenges. Our program addresses immediate needs while working toward long-term stability.</p>
+                        <ul style="color: var(--light-purple); margin-top: 15px; padding-left: 20px;">
+                            <li>Monthly food packs and essential supplies</li>
+                            <li>Emotional support and counseling services</li>
+                            <li>Health checks and medical assistance</li>
+                            <li>Educational support for their children</li>
+                            <li>Emergency welfare assistance</li>
+                        </ul>
+                    </div>
+                    <div class="card program-card">
+                        <div class="program-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Financial Literacy & Mentorship</h3>
+                        <p>We teach beneficiaries how to manage money effectively, save consistently, and grow their businesses sustainably. Our mentorship program pairs beneficiaries with experienced business leaders.</p>
+                        <ul style="color: var(--light-purple); margin-top: 15px; padding-left: 20px;">
+                            <li>Basic financial management workshops</li>
+                            <li>Savings and investment strategies</li>
+                            <li>Business planning and growth techniques</li>
+                            <li>One-on-one mentorship matching</li>
+                            <li>Regular progress tracking and support</li>
+                        </ul>
+                    </div>
+                    <div class="card program-card">
+                        <div class="program-icon">
+                            <i class="fas fa-fire"></i>
+                        </div>
+                        <h3>Youth Empowerment Bootcamp</h3>
+                        <p>Our intensive bootcamps provide young people with business ideas but no funds the skills, knowledge, and connections they need to succeed. We focus on practical, actionable strategies for entrepreneurial success.</p>
+                        <ul style="color: var(--light-purple); margin-top: 15px; padding-left: 20px;">
+                            <li>Idea validation and business model development</li>
+                            <li>Digital skills and online business strategies</li>
+                            <li>Pitching to potential investors</li>
+                            <li>Access to our startup grant program</li>
+                            <li>Ongoing support and networking opportunities</li>
+                        </ul>
                     </div>
                 </div>
-                
-                <div class="form-container" style="margin-top: 60px;">
-                    <h2 style="text-align: center; margin-bottom: 30px;">Volunteer Registration</h2>
-                    <form id="volunteerForm" action="https://formspree.io/f/your-form-id" method="POST">
-                        <div class="form-group">
-                            <label for="fullName">Full Name</label>
-                            <input type="text" id="fullName" name="fullName" class="form-control" required>
+            </div>
+
+            <!-- Team Section -->
+            <div class="section">
+                <h2 class="section-title">Our Team</h2>
+                <div class="team-grid">
+                    <div class="card team-card">
+                        <div class="team-img" style="background: rgba(255,255,255,0.3); display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-user" style="font-size: 3rem; color: white;"></i>
                         </div>
-                        
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" name="email" class="form-control" required>
+                        <h3 class="team-name">Founder</h3>
+                        <p class="team-role">Visionary Leader</p>
+                        <p style="color: var(--light-purple);">A compassionate nurse with over a decade of experience in community service and empowerment initiatives across Nigeria and Canada.</p>
+                    </div>
+                    <div class="card team-card">
+                        <div class="team-img" style="background: rgba(255,255,255,0.3); display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-user" style="font-size: 3rem; color: white;"></i>
                         </div>
-                        
-                        <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" name="phone" class="form-control" required>
+                        <h3 class="team-name">Program Director</h3>
+                        <p class="team-role">Operations Management</p>
+                        <p style="color: var(--light-purple);">Oversees all program implementation, beneficiary selection, and impact assessment to ensure we achieve our mission effectively.</p>
+                    </div>
+                    <div class="card team-card">
+                        <div class="team-img" style="background: rgba(255,255,255,0.3); display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-user" style="font-size: 3rem; color: white;"></i>
                         </div>
-                        
-                        <div class="form-group">
-                            <label for="location">Location</label>
-                            <input type="text" id="location" name="location" class="form-control" required>
+                        <h3 class="team-name">Volunteer Coordinator</h3>
+                        <p class="team-role">Community Engagement</p>
+                        <p style="color: var(--light-purple);">Manages our growing team of volunteers and ensures they have meaningful experiences while contributing to our mission.</p>
+                    </div>
+                    <div class="card team-card">
+                        <div class="team-img" style="background: rgba(255,255,255,0.3); display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-user" style="font-size: 3rem; color: white;"></i>
                         </div>
-                        
-                        <div class="form-group">
-                            <label for="skills">Skills & Expertise</label>
-                            <textarea id="skills" name="skills" class="form-control" placeholder="Tell us about your skills, experience, or how you'd like to contribute"></textarea>
+                        <h3 class="team-name">Partnership Manager</h3>
+                        <p class="team-role">Strategic Alliances</p>
+                        <p style="color: var(--light-purple);">Develops relationships with corporate partners, donors, and other organizations to expand our reach and impact.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Volunteers Page -->
+    <section id="volunteers" class="page">
+        <div class="container">
+            <div class="section">
+                <h2 class="section-title">Be Part of Us</h2>
+                <div class="card-grid" style="margin-bottom: 50px;">
+                    <div class="card">
+                        <div class="card-icon">
+                            <i class="fas fa-heart"></i>
                         </div>
-                        
-                        <div class="form-group">
-                            <label for="availability">Availability</label>
-                            <select id="availability" name="availability" class="form-control" required>
-                                <option value="">Select your availability</option>
-                                <option value="weekdays">Weekdays</option>
-                                <option value="weekends">Weekends</option>
-                                <option value="both">Both weekdays and weekends</option>
-                                <option value="flexible">Flexible</option>
-                            </select>
+                        <h3>Why Volunteer With Us?</h3>
+                        <p>Join our community of change-makers and directly impact lives in vulnerable communities. Your time and skills can help restore dignity and rebuild lives.</p>
+                        <ul style="color: var(--light-purple); margin-top: 15px; padding-left: 20px;">
+                            <li>Make a tangible difference in people's lives</li>
+                            <li>Gain valuable experience in community development</li>
+                            <li>Join a supportive network of like-minded individuals</li>
+                            <li>Flexible volunteering opportunities to suit your schedule</li>
+                            <li>Receive training and recognition for your contributions</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">
+                            <i class="fas fa-tasks"></i>
                         </div>
-                        
+                        <h3>Volunteer Roles</h3>
+                        <p>We have various volunteering opportunities based on your skills, interests, and availability:</p>
+                        <ul style="color: var(--light-purple); margin-top: 15px; padding-left: 20px;">
+                            <li><strong>Program Facilitators:</strong> Lead training sessions in your area of expertise</li>
+                            <li><strong>Mentors:</strong> Provide guidance and support to beneficiaries</li>
+                            <li><strong>Community Outreach:</strong> Help identify and connect with potential beneficiaries</li>
+                            <li><strong>Administrative Support:</strong> Assist with office tasks and program coordination</li>
+                            <li><strong>Fundraising Champions:</strong> Help organize events and raise awareness</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="form-container glass">
+                    <h3 style="color: var(--white); text-align: center; margin-bottom: 30px;">Volunteer Application Form</h3>
+                    <form id="volunteer-form" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
                         <div class="form-group">
-                            <label for="interest">Area of Interest</label>
-                            <select id="interest" name="interest" class="form-control" required>
-                                <option value="">Select your area of interest</option>
-                                <option value="skills-training">Skills Training</option>
-                                <option value="business-grants">Business Grants</option>
-                                <option value="widows-support">Widows & Widowers Support</option>
-                                <option value="financial-literacy">Financial Literacy</option>
-                                <option value="youth-empowerment">Youth Empowerment</option>
-                                <option value="fundraising">Fundraising</option>
+                            <label class="form-label" for="volunteer-name">Full Name</label>
+                            <input type="text" class="form-control" id="volunteer-name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="volunteer-email">Email Address</label>
+                            <input type="email" class="form-control" id="volunteer-email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="volunteer-phone">Phone Number</label>
+                            <input type="tel" class="form-control" id="volunteer-phone" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="volunteer-role">Preferred Volunteer Role</label>
+                            <select class="form-control" id="volunteer-role" name="role" required>
+                                <option value="">Select a role</option>
+                                <option value="program-facilitator">Program Facilitator</option>
+                                <option value="mentor">Mentor</option>
+                                <option value="community-outreach">Community Outreach</option>
+                                <option value="administrative-support">Administrative Support</option>
+                                <option value="fundraising">Fundraising Champion</option>
                                 <option value="other">Other</option>
                             </select>
                         </div>
-                        
-                        <button type="submit" class="btn" style="width: 100%;">Submit Application</button>
+                        <div class="form-group">
+                            <label class="form-label" for="volunteer-skills">Skills & Experience</label>
+                            <textarea class="form-control" id="volunteer-skills" name="skills" placeholder="Please describe your relevant skills, experience, and why you want to volunteer with us..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="volunteer-availability">Availability</label>
+                            <select class="form-control" id="volunteer-availability" name="availability" required>
+                                <option value="">Select your availability</option>
+                                <option value="weekdays">Weekdays</option>
+                                <option value="weekends">Weekends</option>
+                                <option value="evenings">Evenings</option>
+                                <option value="flexible">Flexible</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-purple" style="width: 100%;">Submit Application</button>
                     </form>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="page-section">
-        <div class="page-hero">
-            <div class="container">
-                <h1>Contact Us</h1>
-                <p>Get in touch with us to learn more about our programs or how you can support our mission</p>
-            </div>
-        </div>
-
-        <div class="form-section">
-            <div class="container">
-                <div class="content-grid">
-                    <div class="content-text">
-                        <div class="section-title">
-                            <h2>Get In Touch</h2>
-                            <p>We'd love to hear from you. Whether you have questions about our programs, want to partner with us, or need support, our team is here to help.</p>
-                        </div>
-                        <p>You can reach us through any of the following channels:</p>
-                        <ul>
-                            <li><strong>Phone:</strong> +234 XXX XXX XXXX (Nigeria) / +1 XXX XXX XXXX (Canada)</li>
-                            <li><strong>Email:</strong> info@hopeliftfoundation.org</li>
-                            <li><strong>Office Hours:</strong> Monday - Friday, 9:00 AM - 5:00 PM</li>
-                            <li><strong>Social Media:</strong> Follow us for updates on our programs and events</li>
-                        </ul>
-                        <p>For specific program inquiries, please mention the program name in your message so we can direct you to the right team member.</p>
-                    </div>
-                    <div class="content-image">
-                        <img src="https://images.unsplash.com/photo-1551836026-d5cbc961c910?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Community meeting">
+    <!-- Apply Page -->
+    <section id="apply" class="page">
+        <div class="container">
+            <div class="section">
+                <div class="hero" style="height: auto; padding: 50px 0;">
+                    <div class="hero-content glass">
+                        <h1>Apply for Support</h1>
+                        <p>We offer various programs to support individuals and communities. Select the program you're interested in and complete the application form below.</p>
                     </div>
                 </div>
-                
-                <div class="form-container" style="margin-top: 60px;">
-                    <h2 style="text-align: center; margin-bottom: 30px;">Send Us a Message</h2>
-                    <form id="contactForm" action="https://formspree.io/f/your-form-id" method="POST">
-                        <div class="form-group">
-                            <label for="contactName">Full Name</label>
-                            <input type="text" id="contactName" name="contactName" class="form-control" required>
+
+                <div class="card-grid" style="margin: 50px 0;">
+                    <div class="card program-card">
+                        <div class="program-icon">
+                            <i class="fas fa-hand-holding-usd"></i>
                         </div>
-                        
-                        <div class="form-group">
-                            <label for="contactEmail">Email Address</label>
-                            <input type="email" id="contactEmail" name="contactEmail" class="form-control" required>
+                        <h3>Business Grants</h3>
+                        <p>Apply for financial support to start or expand your small business. We provide grants ranging from ₦20,000 to ₦200,000 along with business mentorship.</p>
+                        <ul style="color: var(--light-purple); margin-top: 15px; padding-left: 20px;">
+                            <li>Must have a viable business idea or existing small business</li>
+                            <li>Willingness to participate in business training</li>
+                            <li>Commitment to providing progress reports</li>
+                        </ul>
+                    </div>
+                    <div class="card program-card">
+                        <div class="program-icon">
+                            <i class="fas fa-graduation-cap"></i>
                         </div>
-                        
-                        <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <input type="text" id="subject" name="subject" class="form-control" required>
+                        <h3>Skills Training</h3>
+                        <p>Apply for our skills training programs in hairdressing, tailoring, baking, catering, farming, or POS operations. Training includes certification and startup support.</p>
+                        <ul style="color: var(--light-purple); margin-top: 15px; padding-left: 20px;">
+                            <li>Must be 18 years or older</li>
+                            <li>Demonstrated need for skills development</li>
+                            <li>Commitment to complete the training program</li>
+                        </ul>
+                    </div>
+                    <div class="card program-card">
+                        <div class="program-icon">
+                            <i class="fas fa-users"></i>
                         </div>
-                        
+                        <h3>Widows Support</h3>
+                        <p>Apply for our widows and widowers support program which includes food packages, emotional support, health checks, and emergency welfare assistance.</p>
+                        <ul style="color: var(--light-purple); margin-top: 15px; padding-left: 20px;">
+                            <li>Must be a widow or widower</li>
+                            <li>Demonstrated financial need</li>
+                            <li>Resident in our service areas</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="form-container glass">
+                    <h3 style="color: var(--white); text-align: center; margin-bottom: 30px;">Program Application Form</h3>
+                    <form id="application-form" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
                         <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" class="form-control" required></textarea>
+                            <label class="form-label" for="applicant-name">Full Name</label>
+                            <input type="text" class="form-control" id="applicant-name" name="name" required>
                         </div>
-                        
-                        <button type="submit" class="btn" style="width: 100%;">Send Message</button>
+                        <div class="form-group">
+                            <label class="form-label" for="applicant-email">Email Address</label>
+                            <input type="email" class="form-control" id="applicant-email" name="email">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="applicant-phone">Phone Number</label>
+                            <input type="tel" class="form-control" id="applicant-phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="applicant-address">Address</label>
+                            <input type="text" class="form-control" id="applicant-address" name="address" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="applicant-program">Program Applying For</label>
+                            <select class="form-control" id="applicant-program" name="program" required>
+                                <option value="">Select a program</option>
+                                <option value="business-grant">Start-Up Business Grant</option>
+                                <option value="skills-training">Skills Training Program</option>
+                                <option value="widows-support">Widows & Widowers Support</option>
+                                <option value="financial-literacy">Financial Literacy & Mentorship</option>
+                                <option value="youth-bootcamp">Youth Empowerment Bootcamp</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="applicant-story">Your Story & Needs</label>
+                            <textarea class="form-control" id="applicant-story" name="story" placeholder="Please tell us about your current situation, why you need support, and how this program would help you..." required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="applicant-goals">Your Goals & Plans</label>
+                            <textarea class="form-control" id="applicant-goals" name="goals" placeholder="If applying for business grant or skills training, please describe your business idea or how you plan to use the skills you learn..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-purple" style="width: 100%;">Submit Application</button>
                     </form>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Page -->
+    <section id="contact" class="page">
+        <div class="container">
+            <div class="section">
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="card-grid">
+                    <div class="card">
+                        <h3 style="color: var(--white); margin-bottom: 20px;">Contact Information</h3>
+                        <div style="margin-bottom: 25px;">
+                            <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                                <i class="fas fa-map-marker-alt" style="color: var(--white); margin-right: 15px; font-size: 1.2rem;"></i>
+                                <span style="color: var(--light-purple);">Lagos, Nigeria & Ontario, Canada</span>
+                            </div>
+                            <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                                <i class="fas fa-phone" style="color: var(--white); margin-right: 15px; font-size: 1.2rem;"></i>
+                                <span style="color: var(--light-purple);">+234 XXX XXX XXXX</span>
+                            </div>
+                            <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                                <i class="fas fa-envelope" style="color: var(--white); margin-right: 15px; font-size: 1.2rem;"></i>
+                                <span style="color: var(--light-purple);">info@hopeliftfoundation.org</span>
+                            </div>
+                        </div>
+                        
+                        <h3 style="color: var(--white); margin-bottom: 15px;">Follow Us</h3>
+                        <div class="social-icons">
+                            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <h3 style="color: var(--white); margin-bottom: 20px;">Send Us a Message</h3>
+                        <form id="contact-form" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+                            <div class="form-group">
+                                <label class="form-label" for="contact-name">Your Name</label>
+                                <input type="text" class="form-control" id="contact-name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="contact-email">Email Address</label>
+                                <input type="email" class="form-control" id="contact-email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="contact-subject">Subject</label>
+                                <input type="text" class="form-control" id="contact-subject" name="subject" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="contact-message">Message</label>
+                                <textarea class="form-control" id="contact-message" name="message" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-purple" style="width: 100%;">Send Message</button>
+                        </form>
+                    </div>
+                </div>
                 
-                <div class="contact-info">
-                    <div class="contact-card">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
+                <div class="card" style="margin-top: 50px;">
+                    <h3 style="color: var(--white); margin-bottom: 20px; text-align: center;">Our Location</h3>
+                    <div style="height: 300px; background: rgba(255,255,255,0.1); border-radius: var(--border-radius); display: flex; align-items: center; justify-content: center;">
+                        <div style="text-align: center;">
+                            <i class="fas fa-map" style="font-size: 3rem; color: var(--white); margin-bottom: 15px;"></i>
+                            <p style="color: var(--light-purple);">Map integration would go here</p>
+                            <p style="color: var(--light-purple); margin-top: 10px;">We operate in Lagos, Nigeria and Ontario, Canada</p>
                         </div>
-                        <h3>Phone</h3>
-                        <p>+234 XXX XXX XXXX</p>
-                        <p>+1 XXX XXX XXXX</p>
-                    </div>
-                    
-                    <div class="contact-card">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <h3>Email</h3>
-                        <p>info@hopeliftfoundation.org</p>
-                        <p>support@hopeliftfoundation.org</p>
-                    </div>
-                    
-                    <div class="contact-card">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <h3>Locations</h3>
-                        <p>Nigeria Office</p>
-                        <p>Canada Office</p>
                     </div>
                 </div>
             </div>
@@ -1167,41 +1023,41 @@
     </section>
 
     <!-- Footer -->
-    <footer>
+    <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
-                    <h3>About Us</h3>
-                    <p>HopeLift Foundation is dedicated to restoring dignity and rebuilding lives through sustainable empowerment programs in Nigeria, Canada, and beyond.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
+                    <h3>HopeLift Foundation</h3>
+                    <p style="color: var(--light-purple); margin-bottom: 20px;">Restoring Dignity. Rebuilding Lives.</p>
+                    <p style="color: var(--light-purple);">We empower vulnerable individuals and communities through sustainable solutions, financial support, and skills training.</p>
                 </div>
                 <div class="footer-column">
                     <h3>Quick Links</h3>
-                    <a href="#home" class="footer-nav-link">Home</a>
-                    <a href="#about" class="footer-nav-link">About Us</a>
-                    <a href="#programs" class="footer-nav-link">Programs</a>
-                    <a href="#gallery" class="footer-nav-link">Gallery</a>
-                    <a href="#volunteer" class="footer-nav-link">Volunteer</a>
-                    <a href="#contact" class="footer-nav-link">Contact</a>
+                    <ul class="footer-links">
+                        <li><a href="#" data-page="home">Home</a></li>
+                        <li><a href="#" data-page="about">About Us</a></li>
+                        <li><a href="#" data-page="volunteers">Volunteer</a></li>
+                        <li><a href="#" data-page="apply">Apply for Support</a></li>
+                        <li><a href="#" data-page="contact">Contact</a></li>
+                    </ul>
                 </div>
                 <div class="footer-column">
-                    <h3>Contact Info</h3>
-                    <p><i class="fas fa-phone"></i> +234 XXX XXX XXXX</p>
-                    <p><i class="fas fa-envelope"></i> info@hopeliftfoundation.org</p>
-                    <p><i class="fas fa-map-marker-alt"></i> Nigeria & Canada</p>
+                    <h3>Our Programs</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Start-Up Business Grants</a></li>
+                        <li><a href="#">Skills Training</a></li>
+                        <li><a href="#">Widows Support</a></li>
+                        <li><a href="#">Financial Literacy</a></li>
+                        <li><a href="#">Youth Bootcamp</a></li>
+                    </ul>
                 </div>
                 <div class="footer-column">
-                    <h3>Newsletter</h3>
-                    <p>Subscribe to our newsletter to receive updates on our programs and impact stories.</p>
-                    <form>
-                        <input type="email" class="form-control" placeholder="Your email address" style="margin-bottom: 10px;">
-                        <button type="submit" class="btn" style="width: 100%;">Subscribe</button>
-                    </form>
+                    <h3>Stay Connected</h3>
+                    <p style="color: var(--light-purple); margin-bottom: 20px;">Subscribe to our newsletter for updates on our programs and impact stories.</p>
+                    <div style="display: flex;">
+                        <input type="email" placeholder="Your email" style="flex: 1; padding: 10px; border: none; border-radius: 4px 0 0 4px; background: rgba(255,255,255,0.1); color: var(--white);">
+                        <button class="btn" style="border-radius: 0 4px 4px 0; margin: 0;">Subscribe</button>
+                    </div>
                 </div>
             </div>
             <div class="copyright">
@@ -1211,82 +1067,66 @@
     </footer>
 
     <script>
-        // Mobile menu toggle
-        document.querySelector('.mobile-menu').addEventListener('click', function() {
-            document.querySelector('nav ul').classList.toggle('show');
-        });
-
-        // Theme toggle functionality
-        const themeToggle = document.getElementById('themeToggle');
-        const themeIcon = themeToggle.querySelector('i');
-        
-        themeToggle.addEventListener('click', function() {
-            document.body.classList.toggle('dark-mode');
+        // Navigation functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const navbar = document.querySelector('.navbar');
+            const hamburger = document.getElementById('hamburger');
+            const navMenu = document.getElementById('nav-menu');
+            const navLinks = document.querySelectorAll('.nav-link');
+            const pages = document.querySelectorAll('.page');
             
-            if (document.body.classList.contains('dark-mode')) {
-                themeIcon.classList.remove('fa-moon');
-                themeIcon.classList.add('fa-sun');
-            } else {
-                themeIcon.classList.remove('fa-sun');
-                themeIcon.classList.add('fa-moon');
-            }
+            // Toggle mobile menu
+            hamburger.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+            });
             
-            // Save theme preference to localStorage
-            const isDarkMode = document.body.classList.contains('dark-mode');
-            localStorage.setItem('darkMode', isDarkMode);
-        });
-        
-        // Check for saved theme preference
-        if (localStorage.getItem('darkMode') === 'true') {
-            document.body.classList.add('dark-mode');
-            themeIcon.classList.remove('fa-moon');
-            themeIcon.classList.add('fa-sun');
-        }
-
-        // Page navigation
-        document.querySelectorAll('.nav-link, .footer-nav-link').forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href').substring(1);
-                const targetSection = document.getElementById(targetId);
-                
-                // Hide all sections
-                document.querySelectorAll('.page-section').forEach(section => {
-                    section.classList.remove('active');
+            // Close mobile menu when clicking on a link
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    navMenu.classList.remove('active');
                 });
-                
-                // Show target section
-                if (targetSection) {
-                    targetSection.classList.add('active');
+            });
+            
+            // Page navigation
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetPage = this.getAttribute('data-page');
                     
-                    // Update active nav link
-                    document.querySelectorAll('.nav-link').forEach(navLink => {
-                        navLink.classList.remove('active');
+                    // Hide all pages
+                    pages.forEach(page => {
+                        page.classList.remove('active');
                     });
-                    this.classList.add('active');
                     
-                    // Close mobile menu if open
-                    document.querySelector('nav ul').classList.remove('show');
+                    // Show target page
+                    document.getElementById(targetPage).classList.add('active');
                     
-                    // Scroll to top of page
+                    // Scroll to top
                     window.scrollTo(0, 0);
+                });
+            });
+            
+            // Navbar scroll effect
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
                 }
             });
-        });
-
-        // Form submission handling
-        document.getElementById('volunteerForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you for your interest in volunteering! We will contact you soon.');
-            this.reset();
-        });
-
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you for your message! We will get back to you soon.');
-            this.reset();
+            
+            // Form submission handling
+            const forms = document.querySelectorAll('form');
+            forms.forEach(form => {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    // In a real implementation, this would submit to Formspree
+                    // For demo purposes, we'll just show an alert
+                    alert('Thank you for your submission! In a real implementation, this form would be connected to Formspree.');
+                    form.reset();
+                });
+            });
         });
     </script>
 </body>
-    </html>
+            </html>
