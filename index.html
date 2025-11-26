@@ -92,13 +92,18 @@
         .logo-placeholder {
             width: 50px;
             height: 50px;
-            background: rgba(255, 255, 255, 0.2);
             border-radius: 50%;
             margin-right: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.2rem;
+            overflow: hidden;
+        }
+
+        .logo-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
 
         .nav-menu {
@@ -488,6 +493,13 @@
             align-items: center;
             justify-content: center;
             color: var(--white);
+            overflow: hidden;
+        }
+
+        .footer-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
 
         /* Responsive Design */
@@ -498,15 +510,16 @@
 
             .nav-menu {
                 position: fixed;
-                top: 70px;
+                top: 80px;
                 right: -100%;
                 flex-direction: column;
                 background: rgba(106, 13, 173, 0.95);
                 backdrop-filter: blur(10px);
                 width: 80%;
-                height: calc(100vh - 70px);
+                height: calc(100vh - 80px);
                 transition: var(--transition);
                 padding: 20px;
+                z-index: 999;
             }
 
             .nav-menu.active {
@@ -529,6 +542,15 @@
                 flex-direction: column;
                 align-items: center;
             }
+            
+            .logo {
+                font-size: 1.2rem;
+            }
+            
+            .logo-placeholder {
+                width: 40px;
+                height: 40px;
+            }
         }
     </style>
 </head>
@@ -539,8 +561,7 @@
             <a href="#" class="logo" data-page="home">
                 <div class="logo-placeholder">
                     <!-- Space for your logo --> 
-                    <img src="mix.png" alt="mix image" class="logo-placeholder">
-                    
+                    <img src="mix.png" alt="HopeLift Foundation Logo">
                 </div>
                 HopeLift Foundation
             </a>
@@ -1095,8 +1116,7 @@
                 <div class="footer-column">
                     <div class="footer-logo">
                         <!-- Space for your logo in footer -->
-                        <img src="mix.png" alt="mix image">
-                        <i class="fas fa-hands-helping"></i>
+                        <img src="mix.png" alt="HopeLift Foundation Logo">
                     </div>
                     <h3>HopeLift Foundation</h3>
                     <p style="color: var(--light-purple); margin-bottom: 20px;">Restoring Dignity. Rebuilding Lives.</p>
@@ -1222,4 +1242,4 @@
         });
     </script>
 </body>
-                        </html>0
+    </html>
