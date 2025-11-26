@@ -149,6 +149,10 @@
             justify-content: center;
             text-align: center;
             padding: 0 20px;
+            background: linear-gradient(rgba(106, 13, 173, 0.7), rgba(177, 156, 217, 0.7)), 
+                        url('https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1772&q=80');
+            background-size: cover;
+            background-position: center;
         }
 
         .hero-content {
@@ -375,6 +379,35 @@
             text-align: center;
         }
 
+        /* Image Cards */
+        .image-card {
+            height: 250px;
+            border-radius: var(--border-radius);
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: flex-end;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .image-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to top, rgba(106, 13, 173, 0.8), transparent);
+        }
+
+        .image-card-content {
+            position: relative;
+            z-index: 1;
+            padding: 20px;
+            color: var(--white);
+        }
+
         /* Footer */
         .footer {
             background: rgba(0, 0, 0, 0.2);
@@ -443,6 +476,18 @@
             color: var(--light-purple);
             padding-top: 20px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-logo {
+            width: 120px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
         }
 
         /* Responsive Design */
@@ -517,7 +562,10 @@
             <div class="hero-content glass">
                 <h1>Restoring Dignity. Rebuilding Lives.</h1>
                 <p>HopeLift Empowerment Foundation is dedicated to creating sustainable change by empowering vulnerable individuals and communities through financial support, skills training, and emotional assistance.</p>
-                <a href="#" class="btn btn-purple" data-page="apply">Get Involved</a>
+                <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                    <a href="#" class="btn btn-purple" data-page="apply">Apply for Support</a>
+                    <a href="#" class="btn" data-page="volunteers">Become a Volunteer</a>
+                </div>
             </div>
         </div>
 
@@ -604,6 +652,31 @@
                 </div>
             </div>
 
+            <!-- Success Stories with Images -->
+            <div class="section">
+                <h2 class="section-title">Success Stories</h2>
+                <div class="card-grid">
+                    <div class="image-card" style="background-image: url('https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80');">
+                        <div class="image-card-content">
+                            <h3>Grace's Tailoring Business</h3>
+                            <p>After receiving training and a startup grant, Grace now runs a successful tailoring business.</p>
+                        </div>
+                    </div>
+                    <div class="image-card" style="background-image: url('https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80');">
+                        <div class="image-card-content">
+                            <h3>Community Food Program</h3>
+                            <p>Our monthly food distribution program supports over 50 families in need.</p>
+                        </div>
+                    </div>
+                    <div class="image-card" style="background-image: url('https://images.unsplash.com/photo-1551833086-5b5d3c8f79c2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1771&q=80');">
+                        <div class="image-card-content">
+                            <h3>Youth Skills Training</h3>
+                            <p>Young people learning valuable skills for sustainable livelihoods.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- Testimonials -->
             <div class="section">
                 <h2 class="section-title">Stories of Hope</h2>
@@ -667,8 +740,8 @@
                         <h3>Start-Up Business Grants</h3>
                         <p>We provide financial grants for petty trading, small businesses, and local income-generating ventures. Our grants range from small seed funding for market stalls to larger investments for established small businesses looking to expand. Each grant comes with mentorship and business guidance to ensure sustainability.</p>
                         <ul style="color: var(--light-purple); margin-top: 15px; padding-left: 20px;">
-                            <li>Micro-grants for petty trading (₦20,000 - ₦50,000)</li>
-                            <li>Small business grants (₦50,000 - ₦200,000)</li>
+                            <li>Micro-grants for petty trading (₦100,000 - ₦200,000)</li>
+                            <li>Small business grants (₦200,000 - ₦500,000)</li>
                             <li>Business expansion grants for existing businesses</li>
                             <li>Mentorship and business planning support</li>
                         </ul>
@@ -737,35 +810,27 @@
                 <h2 class="section-title">Our Team</h2>
                 <div class="team-grid">
                     <div class="card team-card">
-                        <div class="team-img" style="background: rgba(255,255,255,0.3); display: flex; align-items: center; justify-content: center;">
-                            <i class="fas fa-user" style="font-size: 3rem; color: white;"></i>
-                        </div>
-                        <h3 class="team-name">Founder</h3>
-                        <p class="team-role">Visionary Leader</p>
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1762&q=80" alt="Stacy" class="team-img">
+                        <h3 class="team-name">Stacy</h3>
+                        <p class="team-role">Founder & Director</p>
                         <p style="color: var(--light-purple);">A compassionate nurse with over a decade of experience in community service and empowerment initiatives across Nigeria and Canada.</p>
                     </div>
                     <div class="card team-card">
-                        <div class="team-img" style="background: rgba(255,255,255,0.3); display: flex; align-items: center; justify-content: center;">
-                            <i class="fas fa-user" style="font-size: 3rem; color: white;"></i>
-                        </div>
-                        <h3 class="team-name">Program Director</h3>
-                        <p class="team-role">Operations Management</p>
-                        <p style="color: var(--light-purple);">Oversees all program implementation, beneficiary selection, and impact assessment to ensure we achieve our mission effectively.</p>
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1774&q=80" alt="Omere Benjamin" class="team-img">
+                        <h3 class="team-name">Omere Benjamin</h3>
+                        <p class="team-role">Lead Developer & Operations</p>
+                        <p style="color: var(--light-purple);">Oversees all technical operations and program implementation to ensure we achieve our mission effectively.</p>
                     </div>
                     <div class="card team-card">
-                        <div class="team-img" style="background: rgba(255,255,255,0.3); display: flex; align-items: center; justify-content: center;">
-                            <i class="fas fa-user" style="font-size: 3rem; color: white;"></i>
-                        </div>
-                        <h3 class="team-name">Volunteer Coordinator</h3>
-                        <p class="team-role">Community Engagement</p>
-                        <p style="color: var(--light-purple);">Manages our growing team of volunteers and ensures they have meaningful experiences while contributing to our mission.</p>
+                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Amina Okoro" class="team-img">
+                        <h3 class="team-name">Amina Okoro</h3>
+                        <p class="team-role">Program Coordinator</p>
+                        <p style="color: var(--light-purple);">Manages our community outreach programs and ensures beneficiaries receive the support they need.</p>
                     </div>
                     <div class="card team-card">
-                        <div class="team-img" style="background: rgba(255,255,255,0.3); display: flex; align-items: center; justify-content: center;">
-                            <i class="fas fa-user" style="font-size: 3rem; color: white;"></i>
-                        </div>
-                        <h3 class="team-name">Partnership Manager</h3>
-                        <p class="team-role">Strategic Alliances</p>
+                        <img src="https://images.unsplash.com/photo-1508341591423-4347099e1f19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="David Chukwu" class="team-img">
+                        <h3 class="team-name">David Chukwu</h3>
+                        <p class="team-role">Partnership Manager</p>
                         <p style="color: var(--light-purple);">Develops relationships with corporate partners, donors, and other organizations to expand our reach and impact.</p>
                     </div>
                 </div>
@@ -874,7 +939,7 @@
                             <i class="fas fa-hand-holding-usd"></i>
                         </div>
                         <h3>Business Grants</h3>
-                        <p>Apply for financial support to start or expand your small business. We provide grants ranging from ₦20,000 to ₦200,000 along with business mentorship.</p>
+                        <p>Apply for financial support to start or expand your small business. We provide grants ranging from ₦100,000 to ₦500,000 along with business mentorship.</p>
                         <ul style="color: var(--light-purple); margin-top: 15px; padding-left: 20px;">
                             <li>Must have a viable business idea or existing small business</li>
                             <li>Willingness to participate in business training</li>
@@ -1027,6 +1092,10 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
+                    <div class="footer-logo">
+                        <!-- Space for your logo in footer -->
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
                     <h3>HopeLift Foundation</h3>
                     <p style="color: var(--light-purple); margin-bottom: 20px;">Restoring Dignity. Rebuilding Lives.</p>
                     <p style="color: var(--light-purple);">We empower vulnerable individuals and communities through sustainable solutions, financial support, and skills training.</p>
@@ -1061,7 +1130,7 @@
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2023 HopeLift Empowerment Foundation. All Rights Reserved.</p>
+                <p>&copy; 2025 HopeLift Empowerment Foundation. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
@@ -1126,7 +1195,29 @@
                     form.reset();
                 });
             });
+            
+            // Make all buttons with data-page attribute work for navigation
+            const buttons = document.querySelectorAll('button, .btn');
+            buttons.forEach(button => {
+                if (button.hasAttribute('data-page')) {
+                    button.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const targetPage = this.getAttribute('data-page');
+                        
+                        // Hide all pages
+                        pages.forEach(page => {
+                            page.classList.remove('active');
+                        });
+                        
+                        // Show target page
+                        document.getElementById(targetPage).classList.add('active');
+                        
+                        // Scroll to top
+                        window.scrollTo(0, 0);
+                    });
+                }
+            });
         });
     </script>
 </body>
-            </html>
+                        </html>0
